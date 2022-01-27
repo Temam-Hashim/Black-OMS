@@ -1,0 +1,7 @@
+.pager li .active_link{
+    background:#000 !important;
+}
+.heading{
+    font-weight: 'bold';
+    color:'blue'
+}
