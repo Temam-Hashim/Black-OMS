@@ -52,12 +52,15 @@
                           <th>Staff Name</th>
                           <th>Department</th>
                           <th>Email</th>
+                          <th>Mobile</th>
                           <th>Profile</th>
                           <th>Basic Salary</th>
                           <th>Allowance</th>
                           <th>Total Amount</th>
-                          <th>Method</th>
+                          <th>Tax</th>
                           <th>Paid On</th>
+                          <th>Present(%)</th>
+                          <th>Status</th>
                           <th>Action</th>
                           <th>Action</th>
                         </tr>
@@ -65,23 +68,49 @@
                         <tbody>
                             <?php 
                             $res = GetSalary();
+
                             while($row = $res->fetch_assoc()){
+
+                               $paid_on = substr($row['paid_on'],0,7);
+                               $staff_name = $row['name'];
+                                        // attendnace analysis for salary
+                                $sql2 = "SELECT * from `attendance` where `st_name`='$staff_name' and `status`='P' and  SUBSTRING(`at_date`,1,7)='$paid_on'";
+                                $res2 = $connect->query($sql2);
+                                $no_of_prsent = $res2->num_rows;
+
+                                    // query 2 for present
+                                $sql3 = "SELECT * from `attendance` where `st_name`='$staff_name' and `status`='A' and SUBSTRING(`at_date`,1,7)='$paid_on'";
+                                $res3 = $connect->query($sql3);
+                                $no_of_absent = $res3->num_rows;
+
+                                // percentage
+                                $total = $no_of_prsent+$no_of_absent;
+                                if($total==0){
+                                  $present_per=0;
+                                }else{
+                                  $present_per = ($no_of_prsent*100)/($total);
+                                }
+                                  
+
+                                // $present_per = ($no_of_prsent*100)/($no_of_prsent+$no_of_absent);
                             ?>
                               <tr>
                                   <td><?php echo $row['sl_id'] ?></td>
                                   <td><?php echo $row['name'] ?></td>
                                   <td><?php echo $row['department'] ?></td>
                                   <td><?php echo $row['email'] ?></td>
+                                  <td><?php echo $row['mobile'] ?></td>
                                   <td><img src="../images/<?php echo $row['pic'] ?>" class="img-responsive img-circle" alt=""></td>
                                   <td><?php echo $row['basic_salary'] ?></td>
                                   <td><?php echo $row['allowance'] ?></td>
                                   <td><?php echo $row['basic_salary']+$row['allowance'] ?></td>
-                                  <td><?php echo $row['payment_method'] ?></td>
+                                  <td><?php echo $row['tax'] ?></td>
                                   <td><?php echo $row['paid_on'] ?></td>
+                                  <td> <?php echo $present_per; ?>%</td>
+                                  <td><?php echo $row['salary_status'] ?></td>
 
-                                  <td><a href="salary_invoice.php?invoice_id=<?php echo $row['sl_id'];?>" class="btn btn-warning">Invoice</a></td>
+                                  <td><a href="salary_invoice.php?invoice_id=<?php echo $row['sl_id'];?>&present=<?php echo $no_of_prsent; ?>&present_per=<?php echo $present_per; ?>" class="btn btn-warning">Invoice</a></td>
                                   <td><a href="salary_manage.php?delete_id=<?php echo $row['sl_id'];?>" class="btn btn-danger">Delete</a></td>
-
                               </tr>
                               <?php } ?>
 
@@ -89,15 +118,19 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                        <th>S.Id</th>
+                          <th>S.Id</th>
                           <th>Staff Name</th>
                           <th>Department</th>
-                          <th >Profile</th>
+                          <th>Email</th>
+                          <th>Mobile</th>
+                          <th>Profile</th>
                           <th>Basic Salary</th>
-                          <th >Allowance</th>
+                          <th>Allowance</th>
                           <th>Total Amount</th>
-                          <th>Method</th>
-                          <th >Paid On</th>
+                          <th>Tax</th>
+                          <th>Paid On</th>
+                          <th>Present(%)</th>
+                          <th>Status</th>
                           <th>Action</th>
                           <th>Action</th>
                         </tr>

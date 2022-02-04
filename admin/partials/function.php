@@ -162,22 +162,130 @@ require_once "db.php";
 
     }
 
-    function AddSalary($name,$email,$dept,$pic,$basic,$allowance,$method){
+    function  AddSalary($st_name,$st_email,$st_dept,$st_pic,$basic,$allowance,$tax,$st_mobile,$st_address){
         global $connect;
-        $sql = "INSERT INTO `salary`(`name`, `email`,`department`,`pic`,`basic_salary`,`allowance`,`payment_method`) 
-                VALUES ('$name','$email','$dept','$pic','$basic','$allowance','$method')";
+        $sql = "INSERT INTO `salary`(`name`, `email`,`department`,`pic`,`basic_salary`,`allowance`,`tax`,`mobile`,`address`) 
+                VALUES ('$st_name','$st_email','$st_dept','$st_pic','$basic','$allowance','$tax','$st_mobile','$st_address')";
         $result = $connect->query($sql);
         if($result){
             $message = "<div class='alert alert-info text-center'>Salary Added successfully</div>";
             header("Location:salary_manage.php?message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to Add Salary. please try again!</div>";
-            header("Location:salary_manage.php?message=$message");
-            // echo mysqli_error($connect);
+            // header("Location:salary_manage.php?message=$message");
+            echo mysqli_error($connect);
         }
     
     }
 
+    // leave section
+    function AddLeaveRequest($name,$dept,$position,$reason,$leave_from,$leave_to, $description){
+        global $connect;
+        $sql = "INSERT INTO `leave_request`(`name`, `dept`, `position`, `reason`, `leave_from`, `leave_to`, `description`)
+                VALUES ('$name','$dept','$position','$reason','$leave_from','$leave_to','$description')";
+        $res = $connect->query($sql);
+
+        if($res){
+            $message = "<div class='alert alert-success text-center'>Request Message sent successfully</div>";
+            header("Location:leave_request.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Request message declined. Please try again!</div>";
+            header("Location:leave_request.php?message=$message");
+            // echo mysqli_error($connect);
+        }
+
+    }
+    
+    // attendance
+    function GetAttendance(){
+        global $connect;
+
+        $sql = "SELECT * from `attendance`";
+        $res = $connect->query($sql);
+        return $res;
+    }
+    function AddAttendance($st_name,$st_date,$st_status){
+        global $connect;
+        $sql = "INSERT INTO `attendance`(`st_name`, `at_date`, `status`) 
+                VALUES ('$st_name','$st_date','$st_status')";  
+        $res = $connect->query($sql);
+
+        if($res){
+            $message = "<div class='alert alert-success text-center'>Attendaance Submitted successfully <a class='btn btn-primary' href='attendance_manage.php'>Manage Attendance</a></div>";
+            header("Location:attendance_add.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to submit attendnace. Please try again!</div>";
+            header("Location:attendance_add.php?message=$message");
+            echo mysqli_error($connect);
+        }
+
+    }
+
+    function UpdateAttendance($at_id,$status){
+        global $connect;
+        $sql = "UPDATE `attendance` set `status`='$status' where `st_id`='$at_id' ";
+        $result = $connect->query($sql);
+        if($result){
+            $message = "<div class='alert alert-info text-center'>Attendnace Updated successfully <a href='attendance_manage.php' class='btn btn-primary'>View Attendnace</a></div>";
+            header("Location:attendance_add.php?edit_id=$at_id&message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to update attendnace. please try again!</div>";
+            header("Location:attendance_add.php?edit_id=$at_id&message=$message");
+            // echo mysqli_error($connect);
+        }
+    }
+
+
+    // add customer from receptions
+    function GetCustomer(){
+        global $connect;
+
+        $sql = "SELECT * from `registration`";
+        $res = $connect->query($sql);
+        return $res;
+    }
+    function AddNewCustomer($name,$email,$mobile,$gender,$age,$exp_level, $exp_year,$address){
+        global $connect;
+        $sql = "INSERT INTO `registration`(`c_name`, `c_email`, `c_mobile`, `gender`, `age`, `exprience_level`, `exprience_year`, `address`) 
+                VALUES ('$name','$email','$mobile','$gender','$age','$exp_level','$exp_year','$address')";
+        $res = $connect->query($sql);
+
+        if($res){
+            $message = "<div class='alert alert-success text-center'>$name has Been Registered as $exp_level has been forwarded to staff.</div>";
+            header("Location:customer_add.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to register this customer. Please try again!</div>";
+            header("Location:leave_request.php?message=$message");
+            // echo mysqli_error($connect);
+        }
+
+    }
+    function UpdateCustomer($id,$name,$email,$mobile,$gender,$age,$exp_level, $exp_year,$address){
+        global $connect;
+        $sql = "UPDATE `registration` SET `c_name`='$name',
+                                          `c_email`='$email',`c_mobile`='$mobile',
+                                          `gender`='$gender',`age`='$age',
+                                          `exprience_level`='$exp_level',
+                                          `exprience_year`='$exp_year',
+                                          `address`='$address'
+                                           WHERE `c_id`='$id'";
+         $res = $connect->query($sql);
+        if($res){
+            $message = "<div class='alert alert-success text-center'>Customer with name $name is successfully Updated. <a href='customer_manage.php' class='btn btn-primary'>View Customer</a></div>";
+            header("Location:customer_edit.php?edit_id=$id&message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $name. Please try again!</div>";
+            header("Location:customer_manage.php?message=$message");
+            echo mysqli_error($connect);
+        }
+    }
+    // role
+    function GetRole(){
+        global $connect;
+        $sql = "SELECT * from `role`";
+        $res = $connect->query($sql);
+        return $res;
+    }
     // delete fo all
     function Delete($db,$param,$id,$location){
         global $connect;
@@ -192,6 +300,8 @@ require_once "db.php";
             // echo mysqli_error($connect);
         }
     }
+
+
     // get data by id
     function GetDataById($db, $param, $id){
         global $connect;

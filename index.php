@@ -38,7 +38,7 @@
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
 
-											<input name="username" type="text" class="form-control" placeholder="Enter Username" required>
+											<input name="username" type="text" class="form-control" placeholder="Enter Username" required value="<?php if($_SERVER['REQUEST_METHOD']=='POST') echo $_POST['username'] ?>">
 										</div>
 									</div>
 
@@ -79,16 +79,18 @@ if(isset($_POST['login'])){
 	$username = $connect->real_escape_string($_POST['username']);
 	$password = $connect->real_escape_string($_POST['password']);
 
-	$sql = "SELECT * FROM `users` WHERE `username`='$username'";
+	$sql = "SELECT * FROM `users` WHERE `username`='$username' or `email`='$username'";
 	$result = $connect->query($sql);
 	$row = $result->fetch_array();
 
 	$username_db = $row['username'];
+	$email_db =    $row['email'];
 	$password_db = $row['password'];
 	$role_db = $row['role'];
 
-	if($username===$username_db && $password===$password_db){
+	if(($username===$username_db && $password===$password_db) || ($username===$email_db && $password===$password_db) ){
 		$_SESSION['username'] = $username_db;
+		$_SESSION['userEmail'] = $email_db;
 		$_SESSION['password'] = $password_db;
 		$_SESSION['role'] = $role_db;
 		header("Location:admin/index.php");

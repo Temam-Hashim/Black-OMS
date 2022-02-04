@@ -1,8 +1,9 @@
+<br><hr>
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.18
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 <a href="https://www.temxtech.66ghz.com">TemuTech</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -201,6 +202,9 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+<!-- pdf generator -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -348,5 +352,71 @@
    event.preventDefault()
 })
 </script>
+<!-- select all check box -->
+
+
+<script type="text/javascript">
+ 
+    //bulk selector
+    $('#checkAll').click(function(event){
+
+if(this.checked) {
+
+    $('.checkEachBoxes').each(function(){
+
+        this.checked = true;
+
+    });
+
+} else {
+
+
+    $('.checkEachBoxes').each(function(){
+
+        this.checked = false;
+
+    });
+
+
+}
+
+});
+
+</script>
+
+<!-- check user -->
+</script>
+<!-- select all check box -->
+
+
+<script type="text/javascript">
+ 
+    //bulk selector
+    $('#checkAllUser').click(function(event){
+
+if(this.checked) {
+
+    $('.checkEachBoxes').each(function(){
+
+        this.checked = true;
+
+    });
+
+} else {
+
+
+    $('.checkEachBoxes').each(function(){
+
+        this.checked = false;
+
+    });
+
+
+}
+
+});
+
+</script>
+
 </body>
 </html>

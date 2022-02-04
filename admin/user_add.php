@@ -69,10 +69,15 @@
 
         <div class="form-group">
             <label for="post_content">User Role</label>
-            <select name="user_role" id="user_role" class="form-control">
-                <option value="Admin">Admin</option>
-                <option value="Receptionst">Receptionst</option>
-                <option value="Finance">Finance</option>
+            <select name="user_role" id="user_role" class="form-control" required>
+                <option value="Admin">Select Role</option>
+                <?php 
+                  $res = GetRole();
+                  while($row=$res->fetch_assoc()){
+                    $role_name = $row['role_name'];
+                   echo "<option value='$role_name'>$role_name</option>";
+                  }
+                ?>
             </select>
         </div>
 
