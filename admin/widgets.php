@@ -24,9 +24,12 @@
   $sql = "SELECT * from `leave_request`";
   $leave_res = $connect->query($sql);
   $leave_count = $leave_res->num_rows;
-   // analysis
+   //role
    $role_res = GetRole();
    $role_count = $role_res->num_rows;
+    // payment
+    $role_res = GetPayment();
+    $payment_count = $role_res->num_rows;
 
 ?>
 
@@ -104,7 +107,7 @@
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
               <h3><?php echo $op_count ?></h3>
-              <p>Operation</p>
+              <p>Relation</p>
             </div>
             <div class="icon">
               <i class="fa fa-desktop"></i>
@@ -123,6 +126,34 @@
               <i class="fa fa-desktop"></i>
             </div>
             <a href="customer_analysis.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+                 <!-- analyst departement -->
+          <div class="col-lg-3 col-xs-6">
+          <div class="small-box" style="background-color:#a2bbbb">
+            <div class="inner">
+              <h3><?php echo $an_count ?></h3>
+              <p>Promotion</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-desktop"></i>
+            </div>
+            <a href="customer_for_training.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <!-- payment -->
+      <div class="col-lg-3 col-xs-6">
+          <div class="small-box " style="background-color:#6eee6c">
+            <div class="inner">
+              <h3><?php echo $payment_count ?></h3>
+              <p>Payment Gateway</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-desktop"></i>
+            </div>
+            <a href="payment_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- role -->
@@ -155,6 +186,19 @@
         </div>
 
     <?php } else if($_SESSION['role']=='finance'){?>
+<!-- payment -->
+      <div class="col-lg-3 col-xs-6">
+          <div class="small-box " style="background-color:#6eee6c">
+            <div class="inner">
+              <h3><?php echo $payment_count ?></h3>
+              <p>Payment Gateway</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-desktop"></i>
+            </div>
+            <a href="payment_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
 
       <div class="col-lg-3 col-xs-6">
           <div class="small-box " style="background-color:#6e256c">
@@ -245,22 +289,32 @@
 
 
      
-        <?php } else if($_SESSION['role']=='analyst' || $_SESSION['role']=='promotion'){?>
+        <?php } else if($_SESSION['role']=='analyst'){?>
            <!-- analyst departement -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
               <h3><?php echo $an_count ?></h3>
-              <?php if($_SESSION['role']=='promotion' ){
-                echo "<p>Promotion</p>";
-                }else{
-                echo "<p>Analysis</p>";
-              } ?>
+              <p>Analyst</p>
             </div>
             <div class="icon">
               <i class="fa fa-desktop"></i>
             </div>
             <a href="customer_analysis.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <?php } else if($_SESSION['role']=='promotion'){?>
+           <!-- analyst departement -->
+           <div class="col-lg-3 col-xs-6">
+          <div class="small-box" style="background-color:#32a89b">
+            <div class="inner">
+              <h3><?php echo $an_count ?></h3>
+              <p>Promotion</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-desktop"></i>
+            </div>
+            <a href="customer_for_training.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 

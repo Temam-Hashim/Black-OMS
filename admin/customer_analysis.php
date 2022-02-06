@@ -110,36 +110,24 @@
                         <tbody>
 
                              <?php
-                                if($_SESSION['role']=='promotion'){
-                                    $sql = "SELECT * from `registration` where `analyst`='true' and `ready_for_training`='yes'";
-                                }else{
-                                    $sql = "SELECT * from `registration` where `analyst`='true'";
-                                }
+
+                                $sql = "SELECT * from `registration` where `analyst`='true'";
+                                
             
                                 if(isset($_GET['custom_status'])){
-                                  $status = $_GET['custom_status'];
-                                  if($_SESSION['role']=='promotion'){
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analyst`='true' and `ready_for_training`='yes' ";
-                                    if($status=='all'){
-                                      $sql = "SELECT * from `registration` where `analyst`='true' and `ready_for_training`='yes'";
-                                    }
-                                  }else{
+
+                                   $status = $_GET['custom_status'];
                                     $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analyst`='true' ";
                                     if($status=='all'){
                                       $sql = "SELECT * from `registration` where `analyst`='true'";
                                     }
                                   }
                           
-                                }
+                                
 
                                 if(isset($_GET['status'])){
                                   $status = $_GET['status'];
-                                  if($_SESSION['role']=='promotion'){
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analyst`='true' and `ready_for_training`='yes'";
-                                  }else{
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analyst`='true'";
-                                  }
-
+                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analyst`='true'"; 
                                 }
 
                                 $res = $connect->query($sql);

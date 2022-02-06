@@ -162,16 +162,31 @@ require_once "db.php";
 
     }
 
-    function  AddSalary($st_name,$st_email,$st_dept,$st_pic,$basic,$allowance,$tax,$st_mobile,$st_address){
+    function  AddSalary($st_name,$st_email,$st_dept,$st_pic,$basic,$allowance,$tax,$st_mobile,$st_address,$total_date){
         global $connect;
-        $sql = "INSERT INTO `salary`(`name`, `email`,`department`,`pic`,`basic_salary`,`allowance`,`tax`,`mobile`,`address`) 
-                VALUES ('$st_name','$st_email','$st_dept','$st_pic','$basic','$allowance','$tax','$st_mobile','$st_address')";
+        $sql = "INSERT INTO `salary`(`name`, `email`,`department`,`pic`,`basic_salary`,`allowance`,`tax`,`mobile`,`address`,`total_date`) 
+                VALUES ('$st_name','$st_email','$st_dept','$st_pic','$basic','$allowance','$tax','$st_mobile','$st_address','$total_date')";
         $result = $connect->query($sql);
         if($result){
             $message = "<div class='alert alert-info text-center'>Salary Added successfully</div>";
             header("Location:salary_manage.php?message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to Add Salary. please try again!</div>";
+            // header("Location:salary_manage.php?message=$message");
+            echo mysqli_error($connect);
+        }
+    
+    }
+    function  UpdateSalary($id,$basic,$allowance,$tax,$total_date){
+        global $connect;
+        $sql = "UPDATE `salary` SET `basic_salary`='$basic',`allowance`='$allowance',
+                        `total_date`='$total_date',`tax`='$tax' WHERE `sl_id`='$id'";
+        $result = $connect->query($sql);
+        if($result){
+            $message = "<div class='alert alert-info text-center'>Salary Updated successfully</div>";
+            header("Location:salary_manage.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to Update Salary. please try again!</div>";
             // header("Location:salary_manage.php?message=$message");
             echo mysqli_error($connect);
         }
@@ -286,6 +301,46 @@ require_once "db.php";
         $res = $connect->query($sql);
         return $res;
     }
+
+    // payment gateway
+    function GetPayment(){
+        global $connect;
+
+        $sql = "SELECT * from `payment`";
+        $res = $connect->query($sql);
+        return $res;
+    }
+    function AddPayment($c_name,$c_email,$c_mobile,$c_address,$payment_reason,$total_payment){
+        global $connect;
+        $sql = "INSERT INTO `payment`(`customer_name`, `customer_email`, `customer_mobile`, `customer_address`, `payment_reason`, `total_payment`) 
+                VALUES ('$c_name','$c_email','$c_mobile','$c_address','$payment_reason','$total_payment')";
+        $result =  $connect->query($sql);
+        if($result){
+            $message = "<div class='alert alert-info text-center'>Payment Added successfully</div>";
+            header("Location:payment_manage.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Payment not added. Please try again!</div>";
+            header("Location:payment_add.php?message=$message");
+            // echo mysqli_error($connect);
+        }
+    }
+    function UpdatePayment($id,$c_name,$c_email,$c_mobile,$c_address,$payment_reason,$total_payment){
+        global $connect;
+        $sql = "UPDATE `payment` SET `customer_name`='$c_name',`customer_email`='$c_email',`customer_mobile`='$c_mobile',
+              `customer_address`='$c_address',`payment_reason`='$payment_reason',`total_payment`='$total_payment'
+               WHERE `py_id`='$id'";
+
+        $result = $connect->query($sql);
+        if($result){
+            $message = "<div class='alert alert-info text-center'>Payment Updated successfully</div>";
+            header("Location:payment_manage.php?message=$message");
+        }else{
+            $message = "<div class='alert alert-danger text-center'>Failed to Update Payment. Please try again!</div>";
+            header("Location:payment_update.php?message=$message");
+            // echo mysqli_error($connect);
+        }
+    }
+
     // delete fo all
     function Delete($db,$param,$id,$location){
         global $connect;

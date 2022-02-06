@@ -67,6 +67,55 @@
           </ul>
         </li>
 
+        
+            <!-- operation department -->
+            <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Relational Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="customer_manage.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
+            <li><a href="customer_manage.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
+            <li><a href="customer_manage.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
+            <li><a href="customer_manage.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
+          </ul>
+        </li>
+        <!-- analyst -->
+                    <!-- operation department -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Analyst Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="customer_analysis.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
+            <li><a href="customer_analysis.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
+            <li><a href="customer_analysis.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
+            <li><a href="customer_analysis.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
+          </ul>
+        </li>
+
+                    <!-- analyst -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Promotion Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="customer_for_training.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
+            <li><a href="customer_for_training.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
+            <li><a href="customer_for_training.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
+            <li><a href="customer_for_training.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
+          </ul>
+        </li>
+
         <!-- Staff -->
 
         <li class="treeview">
@@ -124,39 +173,21 @@
           </ul>
         </li>
 
-            <!-- operation department -->
-            <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Operation</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="customer_manage.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
-            <li><a href="customer_manage.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
-            <li><a href="customer_manage.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
-            <li><a href="customer_manage.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
-          </ul>
-        </li>
-        <!-- analyst -->
-                    <!-- operation department -->
+                <!-- accept payment -->
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Analyst</span>
+            <i class="fa fa-table"></i> <span>Payment Gateway</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="customer_analysis.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
-            <li><a href="customer_analysis.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
-            <li><a href="customer_analysis.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
-            <li><a href="customer_analysis.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
+            <li><a href="payment_manage.php"><i class="fa fa-circle-o"></i>Manage Payment</a></li>
+            <li><a href="payment_add.php"><i class="fa fa-circle-o"></i>Add New Payment</a></li>
           </ul>
         </li>
         <!-- role -->
-
         <li>
           <a href="role_manage.php">
             <i class="fa fa-th"></i> <span>Manage Role</span>
@@ -187,7 +218,7 @@
         <!-- operation department -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Relation</span>
+            <i class="fa fa-table"></i> <span>Relation Department</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -242,17 +273,11 @@
         </li>
         
  
-  <?php } else if($_SESSION['role']=='analyst' || $_SESSION['role']=='promotion') { ?>
+  <?php } else if($_SESSION['role']=='analyst') { ?>
             <!-- analyst -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>
-            <?php if($_SESSION['role']=='promotion' ){
-                echo "Promotion";
-                }else{
-                echo "Analyst";
-              } ?>
-            </span>
+            <i class="fa fa-table"></i> <span>Analyst Department</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -264,27 +289,40 @@
             <li><a href="customer_analysis.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
           </ul>
         </li>
-  <?php } else if($_SESSION['role']=='startup analyst') { ?>
-            <!-- analyst -->
+        <?php } else if($_SESSION['role']=='promotion') { ?>
+            <!-- promotion -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Analyst</span>
+            <i class="fa fa-table"></i> <span>Promotion Department</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <!-- <li><a href="customer_analysis.php"><i class="fa fa-circle-o"></i>View All Customer</a></li> -->
+            <li><a href="customer_for_training.php"><i class="fa fa-circle-o"></i>View All Customer</a></li>
+            <li><a href="customer_for_training.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
+            <li><a href="customer_for_training.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
+            <li><a href="customer_for_training.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
+          </ul>
+        </li>
+     <?php }else if($_SESSION['role']=='startup analyst'){?>
+            <!-- analyst -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Analyst Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
             <li><a href="customer_analysis.php?status='startup'"><i class="fa fa-circle-o"></i>View Start Up</a></li>
-            <!-- <li><a href="customer_analysis.php?status='existing'"><i class="fa fa-circle-o"></i>View Existing</a></li>
-            <li><a href="customer_analysis.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li> -->
           </ul>
         </li>
    <?php } else if($_SESSION['role']=='existing analyst') { ?>
             <!-- analyst -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Analyst</span>
+            <i class="fa fa-table"></i> <span> Analyst Department</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -297,7 +335,7 @@
             <!-- analyst -->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Analyst</span>
+            <i class="fa fa-table"></i> <span>Analyst Department</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -309,6 +347,22 @@
         
 
 <?php } else if($_SESSION['role']=='finance') { ?>
+
+                <!-- accept payment -->
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Payment Gateway</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="payment_manage.php"><i class="fa fa-circle-o"></i>Manage Payment</a></li>
+            <li><a href="payment_add.php"><i class="fa fa-circle-o"></i>Add New Payment</a></li>
+  
+          </ul>
+        </li>
 
           <!-- Salary -->
 

@@ -88,7 +88,7 @@ if(isset($_POST['login'])){
 	$password_db = $row['password'];
 	$role_db = $row['role'];
 
-	if(($username===$username_db && $password===$password_db) || ($username===$email_db && $password===$password_db) ){
+	if(($username===$username_db && password_verify($password,$password_db) ) || ($username===$email_db && password_verify($password,$password_db) ) ){
 		$_SESSION['username'] = $username_db;
 		$_SESSION['userEmail'] = $email_db;
 		$_SESSION['password'] = $password_db;

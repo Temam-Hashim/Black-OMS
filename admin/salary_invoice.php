@@ -20,10 +20,13 @@
             <?php
             if(isset($_GET['invoice_id'])){
               $i_id = $_GET['invoice_id'];
-              $present = $_GET['present'];
-              $present_per = $_GET['present_per'];
+
+              // $present = $_GET['present'];
+              // $present_per = $_GET['present_per'];
               $res = GetDataById('salary', 'sl_id', $i_id);
               $row = $res->fetch_array();
+
+              $present = $row['total_date'];
             }
             ?>
 
@@ -70,7 +73,7 @@
                             <th>S.Id</th>
                             <th>Basic Salary</th>
                             <th>Allowance</th>
-                            <th>Present (%)</th>
+                            <th>Total Day</th>
                             <th>Total Amount</th>
                           </tr>
                           </thead>
@@ -79,7 +82,7 @@
                             <td><?php echo $row['sl_id'] ?></td>
                             <td>Birr. <?php echo $row['basic_salary'] ?></td>
                             <td>Birr. <?php echo $row['allowance'] ?></td>
-                            <td> <?php echo $present_per; ?>%</td>
+                            <td> <?php echo $present; ?> day</td>
                             <td>Birr. <?php echo $row['basic_salary']+$row['allowance'] ?></td>
                           </tr>
                           </tbody>
@@ -108,28 +111,29 @@
                         </div>
                       </div>
                       <?php
-                           $basic = $row['basic_salary'];
+                           $tax = $row['tax'];
                             $deduction = 0;
-                            if($basic<=600){
+                            if($tax==0){
                               $deduction = 0;
-                              }else if($basic>600 && $basic<=1650){
+                              }else if($tax==10){
                                 $deduction = 60;
                               }
-                              else if($basic>1650 && $basic<=3200){
+                              else if($tax==15){
                                 $deduction = 142.50;
                               }
-                              else if($basic>3200 && $basic<=5250){
+                              else if($tax==20){
                                 $deduction = 302.50;
                               }
-                              else if($basic>5250 && $basic<=7800){
+                              else if($tax==25){
                                 $deduction = 565;
                               }
-                              else if($basic>7800 && $basic<=10900){
+                              else if($tax==30){
                                 $deduction = 955;
                               }
-                              else if($basic>10900){
+                              else if($tax==35){
                                 $deduction = 1500;
                               }
+                              
                               $tax1 = ($row['basic_salary']*($row['tax']/100))-$deduction;
                               $total =(($row['basic_salary']-$tax1)+$row['allowance']);
                               $total = ($total/30)*$present;

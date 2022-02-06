@@ -15,7 +15,7 @@
     width:100px;
     height:100px;
   }
-  .btn{
+  .Mybtn{
     margin-left:30px;
     margin-right:20px;
     margin-top:20px;
@@ -65,8 +65,8 @@
           <li class="list-group-item"><?php echo $row['position']; ?></li>
         </ul>
       <div class="card-body text-center">
-          <a href="attendance_manage.php" class="btn btn-sm btn-primary">Attendnace</a>
-          <a href="salary_manage.php" class="btn btn-sm btn-info">Salary</a>
+          <a href="attendance_manage.php" class="btn btn-sm btn-primary Mybtn">Attendnace</a>
+          <a href="salary_manage.php" class="btn btn-sm btn-info Mybtn">Salary</a>
       </div>
 
 
@@ -90,12 +90,12 @@
 
   ?>
 
-     <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Attednance Analysis</h3>
+     <div class="box" style="margin-top:15px;">
+        <div class="box-header text-center">
+          <h3 class="box-title text-info"><b>Attednance Analysis</b></h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive">
+        <div class="box-body table-responsive" >
           <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>

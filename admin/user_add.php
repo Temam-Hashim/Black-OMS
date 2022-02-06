@@ -100,13 +100,33 @@
         $username    = mysqli_real_escape_string($connect,$_GET['username']);
         $email       = mysqli_real_escape_string($connect,$_GET['email']);
         $password    = mysqli_real_escape_string($connect,$_GET['password']);
+        $password_hash = password_hash($password,PASSWORD_BCRYPT,array('cost'=>10) );
         $user_role   = mysqli_real_escape_string($connect,$_GET['user_role']);
+
+        // send login detail to user via email
+        $subject = "Login Credential from Black Financial Solution.";
+
+        $body = "<h3>Dear $username,</h3>";
+        $body.= "<p>Welcome to Black Financial Solution! We are super happy to have you in our Company.</p>";
+        $body.= "<p>Please find your login credential of our Office Management system.<br><hr></p>";
+        $body.= "<p>User Name:  <b color='green'>$username</b> <hr></p>";
+        $body.= "<p>Email Address: <b color='green'>$email</b> <hr></p>";
+        $body.= "<p>Password: <b color='green'>$password</b> <hr></p>";
+        $body.= "<p>Your Role:  <b color='green'>$user_role</b> <hr></p>";
+        $body.= "<p>You can use either your username or your email in username field to login to our platform.<hr><hr><br></p>";
+        $body.= "<div color='blue'><b>NOTE:</b> Please never ever share this credential to any one, even if some one you trust. All the data is sensetive and can not be recovered once deleted. this detail is only for your own usage as staff member as per your responsiblity.</div><br><hr>";
+        $body.= "<div color='red'><b>Discliminary:</b><br><small>This is system generated email, do not replay to this email, contact the admin if you have any problem.</small></div>";
+
+
+
 
         // check if user exist
         $res = GetDataById('users', 'email', $email);
         $count = $res->num_rows;
         if($count==0){
-          AddUser($username,$email,$password,$user_role);
+          AddUser($username,$email,$password_hash,$user_role);
+          // send mail
+          PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
         }else{
           echo "<script>alert('User already exists with this email')</script>";
         }

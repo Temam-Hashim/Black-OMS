@@ -87,14 +87,29 @@
                                 <th>Staff Name</th>
                                 <th>Basic Salary</th>
                                 <th>Allowance</th>
+                                <th>No of Day</th>
+                                <th>tax</th>
                                 <th>Action</th>
                               </tr>
                               </thead>
                               <tbody>
                               <tr>  
-                                <td><?php echo $row['st_name'] ?></td>
+                                <td><?php echo $row['st_name']; ?></td>
                                 <td><input type="text" class="form-control" name="basic_salary"></td>
                                 <td><input type="text" class="form-control" name="allowance"></td>
+                                <td><input type="text" class="form-control" name="total_date"></td>
+                                <td>
+                                    
+                                  <select name="tax" id="tax" class="form-control">
+                                    <option value="0">0</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                  </select>
+                                </td>
                                 <td><input type="submit" class="btn btn-primary" name="add_salary" value="Submit"></td>
                               </tr>
                               </tbody>
@@ -123,34 +138,38 @@
         $allowance = mysqli_real_escape_string($connect,$_POST['allowance']);
         $st_mobile = mysqli_real_escape_string($connect,$_POST['st_mobile']);
         $st_address = mysqli_real_escape_string($connect,$_POST['st_address']);
-        $tax = 0;
-        if($basic<=600){
-          $tax = 0;
-        }else if($basic>600 && $basic<=1650){
-          $tax = 10;
-        }
-        else if($basic>1650 && $basic<=3200){
-          $tax = 15;
-        }
-        else if($basic>3200 && $basic<=5250){
-          $tax = 20;
-        }
-        else if($basic>5250 && $basic<=7800){
-          $tax = 25;
-        }
-        else if($basic>7800 && $basic<=10900){
-          $tax = 30;
-        }
-        else if($basic>10900){
-          $tax = 35;
-        }
-      //  check if user already paid in this month
+        $tax = mysqli_real_escape_string($connect,$_POST['tax']);
+        $total_date = mysqli_real_escape_string($connect,$_POST['total_date']);
+     
+      
+      // if($basic<=600){
+      //   $tax = 0;
+      // }else if($basic>600 && $basic<=1650){
+      //   $tax = 10;
+      // }
+      // else if($basic>1650 && $basic<=3200){
+      //   $tax = 15;
+      // }
+      // else if($basic>3200 && $basic<=5250){
+      //   $tax = 20;
+      // }
+      // else if($basic>5250 && $basic<=7800){
+      //   $tax = 25;
+      // }
+      // else if($basic>7800 && $basic<=10900){
+      //   $tax = 30;
+      // }
+      // else if($basic>10900){
+      //   $tax = 35;
+      // }
+       //  check if user already paid in this month
       $current = date("Y-m");
-      $sql = "SELECT * FROM `salary` WHERE SUBSTRING(`paid_on`,1,7)='$current' ";
+      $sql = "SELECT * FROM `salary` WHERE SUBSTRING(`paid_on`,1,7)='$current'";
       $res =  $connect->query($sql);
       $counter = $res->num_rows;
+
       if($counter==0){
-        AddSalary($st_name,$st_email,$st_dept,$st_pic,$basic,$allowance,$tax,$st_mobile,$st_address);
+        AddSalary($st_name,$st_email,$st_dept,$st_pic,$basic,$allowance,$tax,$st_mobile,$st_address,$total_date);
       }else{
         $message = "<div class='alert alert-info text-center'>This User has already received his salary for this month, you can not make payment for one user twice a month.</div>";
         header("Location:salary_add.php?message=$message");

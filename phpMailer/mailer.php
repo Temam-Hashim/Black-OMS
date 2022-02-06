@@ -30,16 +30,16 @@ function PHP_MAILER($to,$from,$subject,$body){
             $mail->CharSet = 'UTF-8';                                //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
-            $mail->setFrom($from, 'AGRO WEB USER');
+            $mail->setFrom($from, 'Black Financial Solution');
             $mail->addAddress($to, 'Temam');     //Add a recipient
             // $mail->addAddress('ellen@example.com');               //Name is optional
-            $mail->addReplyTo($from, 'REPLAY FROM AGRO WEB');
+            $mail->addReplyTo($from, 'REPLAY FROM BLACk');
             // $mail->addCC('ourgroupemail2018@gmail.com');
             // $mail->addBCC('ourgroupemail2018@gmail.com');
 
             //Attachments
             // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            $mail->addAttachment('images/logo.png', 'AGRO LOGO');    //Optional name
+            $mail->addAttachment('../images/algo.png', 'Black Logo');    //Optional name
 
              // send html content
            //$mail->msgHTML(file_get_contents('contents.html'), __DIR__);
@@ -63,7 +63,7 @@ function PHP_MAILER($to,$from,$subject,$body){
 }
 
 
-function MULTI_MAILER($subject,$body){
+function MULTI_MAILER($to,$subject,$body){
 
   $mail = new PHPMailer(true);
 
@@ -88,15 +88,13 @@ function MULTI_MAILER($subject,$body){
 
       //Recipients
 
-      $mail->setFrom('ourgroupemail2018@gmail.com', 'AGRO WEB USER');
+      $mail->setFrom('ourgroupemail2018@gmail.com', 'Black Financial Solution');
       // get address from user table
-      global $conn;
-      $result = mysqli_query($conn, 'SELECT user_email,scr_email as user_email FROM users inner join subscriber');
-      foreach($result as $row){
-           $mail->addAddress($row['user_email']);
-      }
+ 
+       $mail->addAddress($to);
+      
       // $mail->addAddress('ellen@example.com');               //Name is optional
-      $mail->addReplyTo('ourgroupemail2018@gmail.com', 'REPLAY FROM AGRO WEB');
+      $mail->addReplyTo('ourgroupemail2018@gmail.com', 'REPLAY FROM BLACK');
 
       // $mail->addCC('ourgroupemail2018@gmail.com');
 

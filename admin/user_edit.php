@@ -56,7 +56,7 @@
 
                     <div class="form-group">
                         <label for="post_content">Password</label>
-                        <input type="password" class="form-control" name="password" value="<?php echo $row['password'];?>">
+                        <input type="password" class="form-control" name="password" value="">
                     </div>
                     <div class="form-group">
                         <label for="post_content">User Role</label>
@@ -67,12 +67,11 @@
                             while($row1=$res1->fetch_assoc()){
                               $role_name = $row1['role_name'];
 
-                            echo "<option value='$role_name'>$role_name</option>";
+                             echo "<option value='$role_name'>$role_name</option>";
                             }
                           ?>
                         </select>
                     </div>
-
                       <div class="form-group">
                         <input class="btn btn-primary" type="submit" name="update_user" value="Update  User">
                     </div>
@@ -86,8 +85,6 @@
  
 </div>
 
-
-
 <?php
 
 
@@ -97,12 +94,30 @@ if(isset($_POST['update_user'])) {
    $u_id        = mysqli_real_escape_string($connect,$_POST['u_id']);
    $username    = mysqli_real_escape_string($connect,$_POST['username']);
    $email       = mysqli_real_escape_string($connect,$_POST['email']);
+ 
    $password    = mysqli_real_escape_string($connect,$_POST['password']);
+   if(empty($password)){
+     $password_hash = $row['password'];
+   }else{
+     $password_hash = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
+   }
    $user_role   = mysqli_real_escape_string($connect,$_POST['user_role']);
+    // send login detail to user via email
+    $subject = "Black Financial Solution has Updated your Login Credential.";
 
-   // $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
+    $body = "<h3>Dear $username,</h3>";
+    $body.= "<p>Welcome to Black Financial Solution! We are super happy to have you in our Company.</p>";
+    $body.= "<p>Please find your login credential of our Office Management system.<br><hr></p>";
+    $body.= "<p>User Name:  <b style='color:green'>$username</b> <hr></p>";
+    $body.= "<p>Email Address: <b style='color:green'>$email</b> <hr></p>";
+    $body.= "<p>Password: <b style='color:green'>$password</b> <hr></p>";
+    $body.= "<p>Your Role:  <b style='color:green'>$user_role</b> <hr></p>";
+    $body.= "<p>You can use either your username or your email in username field to login to our platform.<hr><hr><br></p>";
+    $body.= "<div style='color:blue'><b>NOTE:</b> Please never ever share this credential to any one, even if some one you trust. All the data is sensetive and can not be recovered once deleted. this detail is only for your own usage as staff member as per your responsiblity.</div><br><hr>";
+    $body.= "<div style='color:red'><b>Discliminary:</b><br><small>This is system generated email, do not replay to this email, contact the admin if you have any problem.</small></div>";
 
-   UpdateUser($u_id,$username,$email, $password,$user_role);
+   UpdateUser($u_id,$username,$email, $password_hash,$user_role);
+   PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
 
 }
 ?>
