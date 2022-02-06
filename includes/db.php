@@ -5,15 +5,12 @@
     // $db['db_password'] = "";
     // $db['db_name'] = "black_office";
 
-//    000webhost
-    // db =  id15007727_blackoffice
-    // user = TemamHashim
-    //  pass = pZm#hC1Dv98BG4<f
+
      // cloud server
-    $db['db_host'] = "databases.000webhost.com";
-    $db['db_user'] = "id15007727_temamhashim";
-    $db['db_password'] = "4IWzqwYcRma&k-ki";
-    $db['db_name'] = "id15007727_blackoffice";
+    $db['db_host'] = "sql6.freemysqlhosting.net";
+    $db['db_user'] = "sql6470805";
+    $db['db_password'] = "Sf1BTIGTRC";
+    $db['db_name'] = "sql6470805";
 
     foreach($db as $key => $value){
         define(strtoupper($key),$value);
