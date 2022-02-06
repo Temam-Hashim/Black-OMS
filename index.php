@@ -83,7 +83,7 @@ if(isset($_POST['login'])){
 	$result = $connect->query($sql);
 	$row = $result->fetch_array();
 
-	$username_db = $row['username'];
+	$username_db = $row['username '];
 	$email_db =    $row['email'];
 	$password_db = $row['password'];
 	$role_db = $row['role'];
