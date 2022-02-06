@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 01:24 PM
+-- Generation Time: Feb 06, 2022 at 02:57 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -43,13 +43,18 @@ INSERT INTO `attendance` (`st_id`, `st_name`, `at_date`, `status`) VALUES
 (321, 'Temam', '2022-02-03', 'P'),
 (322, 'Sara', '2022-02-03', 'P'),
 (323, 'Kemal', '2022-02-03', 'P'),
-(330, 'Temam', '2022-02-04', 'A'),
+(330, 'Temam', '2022-02-04', 'P'),
 (331, 'Sara', '2022-02-04', 'P'),
 (332, 'Kemal', '2022-02-04', 'P'),
 (333, '', '0000-00-00', ''),
 (334, 'Temam', '2022-02-05', 'P'),
 (335, 'Sara', '2022-02-05', 'P'),
-(336, 'Kemal', '2022-02-05', 'P');
+(336, 'Kemal', '2022-02-05', 'P'),
+(337, '', '0000-00-00', ''),
+(338, 'Temam', '2022-02-06', 'P'),
+(339, 'Sara', '2022-02-06', 'P'),
+(340, 'Kemal', '2022-02-06', 'P'),
+(341, 'Rahel', '2022-02-06', 'P');
 
 -- --------------------------------------------------------
 
@@ -286,9 +291,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created`, `modified`) VALUES
 (13, 'beti', 'beti@gmail.com', 'beti', 'finance', '2022-02-06 12:23:24', '2022-02-06 12:23:24'),
+(14, 'Kemal', 'hashimtemam98@gmail.com', '$2y$10$AM7ddU2y2ZnVqkh5KGRiU.jLiVg48.dmpYttj041sjVo.M6Osd6bO', 'special analyst', '2022-02-06 12:40:11', '2022-02-06 12:40:11'),
 (11, 'Sara', 'ourgroupemail2018@gmail.com', '$2y$10$fye2Cl/0BRQkD7B2BiHOuO84OZnj4gbHwCLQUEJ5zo96E2nc/VC52', 'finance', '2022-02-06 11:02:10', '2022-02-06 11:02:10'),
 (12, 'selam', 'selam@gmail.com', 'selam', 'promotion', '2022-02-06 12:22:44', '2022-02-06 12:22:44'),
-(10, 'Temam', 'temamhashim3@gmail.com', '$2y$10$cApwRqCoowIRjWzPr4hB1uaAlueL7ua8d8HaB6h3Cjb9zMpuehE0y', 'admin', '2022-02-06 11:00:25', '2022-02-06 11:00:25');
+(10, 'Temam', 'temamhashim3@gmail.com', '$2y$10$ZofcQscqw2cTd./.DJouMepTRWum3i/44aL/F672OqREs7PMr2hMO', 'admin', '2022-02-06 11:00:25', '2022-02-06 11:00:25');
 
 --
 -- Indexes for dumped tables
@@ -356,7 +362,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=342;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -404,7 +410,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
