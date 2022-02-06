@@ -10,9 +10,9 @@
     // user = TemamHashim
     //  pass = pZm#hC1Dv98BG4<f
      // cloud server
-    $db['db_host'] = "localhost:3306";
+    $db['db_host'] = "databases.000webhost.com";
     $db['db_user'] = "id15007727_temamhashim";
-    $db['db_password'] = "pZm#hC1Dv98BG4<f";
+    $db['db_password'] = "4IWzqwYcRma&k-ki";
     $db['db_name'] = "id15007727_blackoffice";
 
     foreach($db as $key => $value){
