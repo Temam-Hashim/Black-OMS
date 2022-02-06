@@ -11,7 +11,7 @@
     //  pass = pZm#hC1Dv98BG4<f
      // cloud server
     $db['db_host'] = "localhost";
-    $db['db_user'] = "TemamHashim";
+    $db['db_user'] = "id15007727_temamhashim";
     $db['db_password'] = "pZm#hC1Dv98BG4<f";
     $db['db_name'] = "id15007727_blackoffice";
 
