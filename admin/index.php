@@ -1,9 +1,8 @@
 
-<?php require_once "partials/header.php";?>
+<?php require_once("partials/header.php");?>
   <!-- Left side column. contains the logo and sidebar -->
-<?php require_once "partials/side_bar.php";?>
+<?php require_once("partials/side_bar.php");?>
 
-?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
