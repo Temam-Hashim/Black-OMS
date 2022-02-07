@@ -259,14 +259,22 @@ require_once "db.php";
         $res = $connect->query($sql);
         return $res;
     }
-    function AddNewCustomer($name,$email,$mobile,$gender,$age,$exp_level, $exp_year,$address){
+    function AddNewCustomer($fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type){
         global $connect;
-        $sql = "INSERT INTO `registration`(`c_name`, `c_email`, `c_mobile`, `gender`, `age`, `exprience_level`, `exprience_year`, `address`) 
-                VALUES ('$name','$email','$mobile','$gender','$age','$exp_level','$exp_year','$address')";
-        $res = $connect->query($sql);
+        $sql = "INSERT INTO `registration`(`f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, 
+                `gender`, `dob`, `age`, `birth_place`, `martial_status`, `occupation`, `nationality`, 
+                `current_address`, `permanent_address`, `emergency_contact`, `education_background`, 
+                `salary_range`, `exprience_level`, `exprience_year`,`education_level`, `employment_type`)
+
+                 VALUES ('$fname','$mname','$lname','$email','$mobile','$gender','$dob','$age',
+                 '$birth_place','$martial_status','$occupation','$nationality','$current_address',
+                 '$permanent_address','$emergency_contact','$education_background','$salary_range',
+                 '$exp_level','$exp_year','$education_level','$employment_type')";
+
+       $res = $connect->query($sql);
 
         if($res){
-            $message = "<div class='alert alert-success text-center'>$name has Been Registered as $exp_level has been forwarded to staff.</div>";
+            $message = "<div class='alert alert-success text-center'>$fname $mname $lname has Been Registered as $exp_level and has been forwarded to staff.</div>";
             header("Location:customer_add.php?message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to register this customer. Please try again!</div>";
@@ -275,6 +283,8 @@ require_once "db.php";
         }
 
     }
+
+
     function UpdateCustomer($id,$name,$email,$mobile,$gender,$age,$exp_level, $exp_year,$address){
         global $connect;
         $sql = "UPDATE `registration` SET `c_name`='$name',
@@ -286,7 +296,7 @@ require_once "db.php";
                                            WHERE `c_id`='$id'";
          $res = $connect->query($sql);
         if($res){
-            $message = "<div class='alert alert-success text-center'>Customer with name $name is successfully Updated. <a href='customer_manage.php' class='btn btn-primary'>View Customer</a></div>";
+            $message = "<div class='alert alert-success text-center'>Customer with name $fname $mname $lname is successfully Updated. <a href='customer_manage.php' class='btn btn-primary'>View Customer</a></div>";
             header("Location:customer_edit.php?edit_id=$id&message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $name. Please try again!</div>";
