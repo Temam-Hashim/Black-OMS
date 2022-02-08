@@ -4,7 +4,7 @@ namespace EllipticCurve;
 
 
 class PublicKey {
-
+    
     function __construct ($pem) {
         $this->pem = $pem;
         $this->openSslPublicKey = openssl_get_publickey($pem);
@@ -16,9 +16,9 @@ class PublicKey {
 
     function toDer () {
         $pem = $this->toPem();
-
+    
         $lines = array();
-        foreach(explode("\n", $pem) as $value) {
+        foreach(explode("\n", $pem) as $value) { 
             if (substr($value, 0, 5) !== "-----") {
                 array_push($lines, $value);
             }
@@ -35,7 +35,7 @@ class PublicKey {
 
     static function fromPem ($str) {
         $rebuilt = array();
-        foreach(explode("\n", $str) as $line) {
+        foreach(explode("\n", $str) as $line) { 
             $line = trim($line);
             if (strlen($line) > 1) {
                 array_push($rebuilt, $line);
