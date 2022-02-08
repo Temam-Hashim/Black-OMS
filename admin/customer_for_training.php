@@ -57,10 +57,11 @@
 
                         PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
                         $sent = true;
+                        if($sent == true){
+                          echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer</div>";
+                        }
                       }
-                      if($sent == true){
-                        echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer</div>";
-                      }
+
 
                       // <!-- delete attendnace -->
 
