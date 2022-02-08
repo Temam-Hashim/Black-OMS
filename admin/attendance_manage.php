@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Attendance</li>
       </ol>
     </section>
@@ -40,8 +40,8 @@
                       </div>
 
                  <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Manage Attednance</h3>
+                    <div class="box-header text-center">
+                      <h3 class="box-title text-primary">Manage Attednance</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">

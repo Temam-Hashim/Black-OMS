@@ -14,7 +14,7 @@
         <small>Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Leave request</li>
       </ol>
     </section>
@@ -25,7 +25,7 @@
         <div class="col-xs-12">
               <div class="box box-info">
                 <div class="box-header with-border text-center">
-                  <h3 class="box-title">Leave Request Form</h3>
+                  <h3 class="box-title text-primary">Leave Request Form</h3>
             </div>
 
            <?php

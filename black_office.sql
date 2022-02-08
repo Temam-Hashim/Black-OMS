@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 07:51 AM
+-- Generation Time: Feb 08, 2022 at 10:18 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -143,17 +143,29 @@ INSERT INTO `payment` (`py_id`, `customer_name`, `customer_email`, `customer_mob
 
 CREATE TABLE `registration` (
   `c_id` int(11) NOT NULL,
-  `c_name` varchar(50) DEFAULT NULL,
+  `f_name` varchar(50) DEFAULT NULL,
+  `m_name` varchar(50) DEFAULT 'NULL',
+  `l_name` varchar(50) DEFAULT 'NULL',
   `c_email` varchar(50) DEFAULT NULL,
   `c_mobile` varchar(15) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL,
+  `dob` date NOT NULL,
   `age` int(11) DEFAULT NULL,
+  `birth_place` text NOT NULL,
+  `martial_status` varchar(50) NOT NULL,
+  `occupation` varchar(50) NOT NULL,
+  `employment_type` varchar(50) DEFAULT 'NULL',
+  `nationality` varchar(50) NOT NULL,
+  `current_address` text NOT NULL,
+  `permanent_address` text NOT NULL,
+  `education_background` varchar(50) NOT NULL,
+  `education_level` varchar(50) DEFAULT 'NULL',
+  `salary_range` varchar(50) NOT NULL,
   `exprience_level` varchar(100) DEFAULT NULL,
   `exprience_year` varchar(11) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `emergency_contact` varchar(255) DEFAULT NULL,
   `created` timestamp NULL DEFAULT current_timestamp(),
-  `modified` timestamp NOT NULL DEFAULT current_timestamp(),
-  `analyst` varchar(50) NOT NULL DEFAULT 'false',
+  `analized` varchar(50) NOT NULL DEFAULT 'yes',
   `ready_for_training` varchar(50) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -161,14 +173,16 @@ CREATE TABLE `registration` (
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`c_id`, `c_name`, `c_email`, `c_mobile`, `gender`, `age`, `exprience_level`, `exprience_year`, `address`, `created`, `modified`, `analyst`, `ready_for_training`) VALUES
-(3, 'Temam Hashim', 'temamhashim3@gmail.com', '098521676', 'male', 34, 'existing', '5', 'addis ababa', '2022-01-31 07:02:29', '2022-01-31 07:02:29', 'true', 'yes'),
-(4, 'Marishet', 'ourgroupemail2018@gmail.com', '0987653784', 'male', 20, 'special', '20', 'Addis Ababa, Ethiopia', '2022-01-31 07:47:07', '2022-01-31 07:47:07', 'true', 'no'),
-(5, 'kemal', 'hashimtemam98@gmail.com', '098785673', 'male', 23, 'startup', '0', 'Addis Ababa, Ethiopia', '2022-01-31 09:10:25', '2022-01-31 09:10:25', 'true', 'yes'),
-(6, 'Abdu', 'temamhashim3@gmail.com', '0987653462', 'male', 25, 'existing', '10', 'addis ababa', '2022-02-03 09:25:07', '2022-02-03 09:25:07', 'true', 'yes'),
-(7, 'abeba', 'ab@gmail.com', '098765435', 'male', 34, 'existing', '7', 'addis ababa', '2022-02-03 13:01:12', '2022-02-03 13:01:12', 'true', 'no'),
-(19, 'a', 'a@gmail.com', '390093', 'male', 20, 'special', '0', 'djeowiwld', '2022-02-04 07:42:19', '2022-02-04 07:42:19', 'false', 'no'),
-(20, 'mmm', 'bbbb@f.com', '777', 'female', 44, 'special', '0', 'ggg', '2022-02-04 07:44:52', '2022-02-04 07:44:52', 'false', 'no');
+INSERT INTO `registration` (`c_id`, `f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, `gender`, `dob`, `age`, `birth_place`, `martial_status`, `occupation`, `employment_type`, `nationality`, `current_address`, `permanent_address`, `education_background`, `education_level`, `salary_range`, `exprience_level`, `exprience_year`, `emergency_contact`, `created`, `analized`, `ready_for_training`) VALUES
+(3, 'Temam', 'Hashim', 'Ahimed', 'temamhashim3@gmail.com', '098521676', 'male', '1998-01-20', 18, 'Bambassi', 'single', 'Employed', 'Private Company', 'Ethiopia', 'Assosa,  Bambassi,  Bambassi,  02,  099,  1000', 'Assosa,  Bambassi,  Bambassi,  02,  099,  1000', 'Educated', 'BA/BSc Degree', 'Above 5000', 'existing', '2', 'Mohammed Abdella,  0912664476,  mabdell97@gmail.com,  Desse,  Bati,  Bati,  02,  099,  011', '2022-01-31 07:02:29', 'yes', 'yes'),
+(4, 'Marishet', NULL, NULL, 'ourgroupemail2018@gmail.com', '0987653784', 'male', '0000-00-00', 20, '', '', '', NULL, '', '', '', '', NULL, '', 'special', '20', NULL, '2022-01-31 07:47:07', 'yes', 'yes'),
+(5, 'kemal', NULL, NULL, 'hashimtemam98@gmail.com', '098785673', 'male', '0000-00-00', 23, '', '', '', NULL, '', '', '', '', NULL, '', 'startup', '0', NULL, '2022-01-31 09:10:25', 'yes', 'yes'),
+(6, 'Abdu', NULL, NULL, 'temamhashim3@gmail.com', '0987653462', 'male', '0000-00-00', 25, '', '', '', NULL, '', '', '', '', NULL, '', 'existing', '10', NULL, '2022-02-03 09:25:07', 'yes', 'yes'),
+(7, 'abeba', NULL, NULL, 'ab@gmail.com', '098765435', 'male', '0000-00-00', 34, '', '', '', NULL, '', '', '', '', NULL, '', 'existing', '7', NULL, '2022-02-03 13:01:12', 'yes', 'no'),
+(19, 'a', NULL, NULL, 'a@gmail.com', '390093', 'male', '0000-00-00', 20, '', '', '', NULL, '', '', '', '', NULL, '', 'special', '0', NULL, '2022-02-04 07:42:19', 'no', 'no'),
+(24, 'Seid', 'Ahimed', 'Kemal', 'seid@gmail.com', '0976543234', 'male', '1990-05-08', 26, 'addis ababa', 'single', 'Employed', '', 'Ethiopia', 'addis ababa, bole, 09, 02, EB20, 1000', ', , , , , ', '', '', '3001-5000', 'startup', '', NULL, '2022-02-07 12:51:08', 'no', 'no'),
+(25, 'zzz', 'zzz', 'zzz', 'z@gmail.com', '0986372626', 'male', '2022-02-08', 18, 'decjnkdjnkdw', 'single', 'UnEmployed', '', 'Armenia', 'assosa,    bambassi,  Bamb,      02,  0999,      1000', 'assosa,    bambassi,  Bamb,      02,  0999,      1000', 'Educated', 'certificate(Grade 9-12)', '<1000', 'special', 'Deliquence(', ' Temam,      0985789654,      t@gmail.com,      assosa,      bambassi,     09 ,      02,  0999,      po', '2022-02-07 13:04:44', 'no', 'no'),
+(27, 'bbb', 'bbb', 'bbb', 'bbb@gmail.com', '093i03o5', 'male', '2022-02-08', 18, '1010101', 'single', 'UnEmployed', '', 'Austria', 'efjk, dicdhfuk, crfkj, dnekdj, crifkj, ekfirjc', 'efjk, dicdhfuk, crfkj, dnekdj, crifkj, ekfirjc', 'Uneducated', 'certificate(Grade 1-8)', '<1000', 'startup', '0', 'xnjkdk, cjkkjfv, cjnkjf@gmail.com, cjfkjnk, cjfkkv, cdjfjk, cfnjnkv, crifkj, cnjnkfd', '2022-02-07 13:31:07', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -198,7 +212,8 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (10, 'startup analyst'),
 (11, 'existing analyst'),
 (12, 'special analyst'),
-(13, 'promotion');
+(13, 'promotion'),
+(14, 'secretary');
 
 -- --------------------------------------------------------
 
@@ -386,13 +401,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `salary`

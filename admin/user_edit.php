@@ -13,7 +13,7 @@
         <small>Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Edit User</li>
       </ol>
     </section>
@@ -24,7 +24,7 @@
        <div class="col-xs-12">
           <div class="box box-info">
             <div class="box-header with-border text-center">
-              <h2 class="box-title">Update User</h2>
+              <h2 class="box-title text-primary">Update User</h2>
         </div>
 
     <?php

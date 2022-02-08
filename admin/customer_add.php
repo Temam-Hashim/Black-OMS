@@ -3,15 +3,6 @@
   <!-- Left side column. contains the logo and sidebar -->
 <?php require_once "partials/side_bar.php";?>
 
-<style>
-  .form-container{
-    background-color:#5fa372;
-    border-radius:20px;
-    margin:10px;
-  }
-</style>
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -383,7 +374,7 @@
 
            <div class="form-group">
              <label for="">Birth Place</label>
-             <input type="text" class="form-control" name="birth_place">
+             <input type="text" class="form-control" name="birth_place" value="<?php echo InputValue('birth_place'); ?>">
            </div>
            <!-- if eucational background == tru display this column -->
            <div class="form-group">
@@ -618,7 +609,7 @@
 
         // occupation
         $occupation    =   mysqli_real_escape_string($connect,$_POST['occupation']);
-        $employment_type   =   mysqli_real_escape_string($connect,$_POST['employemnt_type']);
+        $employment_type   =   mysqli_real_escape_string($connect,$_POST['employment_type']);
         $salary_range    =   mysqli_real_escape_string($connect,$_POST['salary_range']);
 
         // education
@@ -656,7 +647,7 @@
 
         $permanent_address = $city2.", ".$subcity2.", ".$werada2.", ".$kebale2.", ".$houseno2.", ".$pincode2;
 
-        if($permanent_address==', , , , , ' || empty($permanent_address)){
+        if($_POST['check_address']=='yes'){
           $permanent_address = $current_address;
         }
 

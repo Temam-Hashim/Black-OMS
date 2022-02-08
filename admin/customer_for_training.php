@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -23,15 +23,13 @@
                       if(isset($_GET['message'])){
                           echo $_GET['message'];
                       }
-                      if($sent = true){
-                        echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer</div>";
-                      }
+
                       if(isset($_GET['send_id'])){
                         $send_id = $_GET['send_id'];
                         $res = GetDataById('registration','c_id',$send_id);
                         $row = $res->fetch_array();
                         $email = $row['c_email'];
-                        $c_name = $row['c_name'];
+                        $c_name = $row['f_name']." ".$row['m_name']." ".$row['l_name'];
                         $exp_level = $row['exprience_level'];
 
                           // traiing fee
@@ -59,6 +57,9 @@
 
                         PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
                         $sent = true;
+                      }
+                      if($sent == true){
+                        echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer</div>";
                       }
 
                       // <!-- delete attendnace -->
@@ -144,8 +145,8 @@
                       </div>
 
                 <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Manage Customer</h3>
+                    <div class="box-header text-center">
+                      <h3 class="box-title text-primary">Manage Customer</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
@@ -172,27 +173,22 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Gender</th>
-                          <th>Age</th>
-                          <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
+                          <th>Exprience Level</th>
+                          <th>Analyzed</th>
                           <th>Ready for Training</th>
                           <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-
-                             <?php
-                         
-                               $sql = "SELECT * from `registration` where `analyst`='true' and `ready_for_training`='yes'";
+                            <?php
+                               $sql = "SELECT * from `registration` where `analized`='yes' and `ready_for_training`='yes'";
                        
                                 if(isset($_GET['custom_status'])){
                                   $status = $_GET['custom_status'];
                                  
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analyst`='true' and `ready_for_training`='yes' ";
+                                    $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analized`='yes' and `ready_for_training`='yes' ";
                                     if($status=='all'){
-                                      $sql = "SELECT * from `registration` where `analyst`='true' and `ready_for_training`='yes'";
+                                      $sql = "SELECT * from `registration` where `analized`='yes' and `ready_for_training`='yes'";
                                     }
                           
                                 }
@@ -200,8 +196,8 @@
                                 if(isset($_GET['status'])){
                                   $status = $_GET['status'];
                                  
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analyst`='true' and `ready_for_training`='yes'";
-                                
+                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analized`='yes' and `ready_for_training`='yes'";
+
                                 }
 
                                 $res = $connect->query($sql);
@@ -211,19 +207,14 @@
                               <tr>
                                   <td><input class='checkEachBoxes' id="checkEachBoxes" type='checkbox' name='checkBoxArray[]'
                                    value='<?php echo $row['c_id'] ;?>'></td>
-
                                   <td><?php echo $row['c_id']; ?></td>
-                                  <td><?php echo $row['c_name']; ?></td>
+                                  <td><?php echo $row['f_name']." ".$row['m_name']." ".$row['l_name']; ?></td>
                                   <td><?php echo $row['c_email']; ?></td>
                                   <td><?php echo $row['c_mobile']; ?></td>
-                                  <td><?php echo $row['gender']; ?></td>
-                                  <td><?php echo $row['age']; ?></td>
                                   <td><?php echo $row['exprience_level']; ?></td>
-                                  <td><?php echo $row['exprience_year']; ?></td>
-                                  <td><?php echo $row['address']; ?></td>
                                   <td><p class="text-success">Yes</p></td> 
-                                  <td><a href="customer_for_training.php?send_id=<?php echo $c_id;?>" class="btn btn-primary">Send Email</a></td>      
-                                
+                                  <td><p class="text-success">Yes</p></td>  
+                                  <td><a href="customer_for_training.php?send_id=<?php echo $c_id;?>" class="btn btn-primary">Send Email</a></td>   
                               </tr>
 
                               <?php } ?>
@@ -238,9 +229,6 @@
                           <th>Mobile</th>
                           <th>Gender</th>
                           <th>Age</th>
-                          <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
                           <th>Ready for Training</th>
                           <th>Action</th>
                         </tr>

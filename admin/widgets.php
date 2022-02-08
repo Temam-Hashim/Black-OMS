@@ -18,7 +18,7 @@
   $op_res = GetCustomer();
   $op_count = $op_res->num_rows;
   // analysis
-  $an_res = GetDataById('registration', 'analyst', 'true');
+  $an_res = GetDataById('registration', 'analized', 'yes');
   $an_count = $an_res->num_rows;
         // leave request count
   $sql = "SELECT * from `leave_request`";
@@ -43,7 +43,7 @@
               <p>System Users</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-user"></i>
             </div>
             <a href="user_view.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -57,7 +57,7 @@
               <p>Department</p>
             </div>
             <div class="icon">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-window-maximize"></i>
             </div>
             <a href="department_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -71,7 +71,7 @@
               <p>Staff</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-meetup"></i>
             </div>
             <a href="staff_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -84,7 +84,7 @@
               <p>Salary</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+               <i class="fa fa-money" aria-hidden="true"></i>
             </div>
             <a href="salary_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -97,12 +97,12 @@
               <p>Attendance</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-bandcamp"></i>
             </div>
             <a href="attendance_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- operation department -->
+        <!-- relation -->
         <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
@@ -110,12 +110,12 @@
               <p>Relation</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-renren"></i>
             </div>
             <a href="customer_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- analyst departement -->
+        <!-- analyst  -->
         <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -123,13 +123,13 @@
               <p>Analysis</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-line-chart"></i>
             </div>
             <a href="customer_analysis.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
-                 <!-- analyst departement -->
+                 <!-- promotion -->
           <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#a2bbbb">
             <div class="inner">
@@ -137,7 +137,7 @@
               <p>Promotion</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-product-hunt"></i>
             </div>
             <a href="customer_for_training.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -151,7 +151,7 @@
               <p>Payment Gateway</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-paypal"></i>
             </div>
             <a href="payment_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -164,7 +164,7 @@
               <p>Role</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-check-square"></i>
             </div>
             <a href="role_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -194,7 +194,7 @@
               <p>Payment Gateway</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-paypal"></i>
             </div>
             <a href="payment_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -207,7 +207,7 @@
               <p>Salary</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+            <i class="fa fa-money" aria-hidden="true"></i>
             </div>
             <a href="salary_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -221,7 +221,7 @@
               <p>Attendance</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-bandcamp"></i>
             </div>
             <a href="attendnace_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -230,7 +230,7 @@
 
      
     <?php } else if($_SESSION['role']=='relation'){?>
-     <!-- operation department -->
+     <!-- operation relation-->
      <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
@@ -238,14 +238,14 @@
               <p>Relation</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-renren"></i>
             </div>
             <a href="customer_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
     <?php } else if($_SESSION['role']=='startup relation'){?>
-     <!-- operation department -->
+     <!-- operation -->
      <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
@@ -253,13 +253,13 @@
               <p>Start Up Relation</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-renren"></i>
             </div>
             <a href="customer_manage.php?status='startup'" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
   <?php } else if($_SESSION['role']=='existing relation'){?>
-     <!-- operation department -->
+     <!-- operation -->
      <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
@@ -267,13 +267,13 @@
               <p>Existing Relation</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-renren"></i>
             </div>
             <a href="customer_manage.php?status='existing'" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
   <?php } else if($_SESSION['role']=='special relation'){?>
-     <!-- operation department -->
+     <!-- operation  -->
      <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#97bfa2">
             <div class="inner">
@@ -290,7 +290,7 @@
 
      
         <?php } else if($_SESSION['role']=='analyst'){?>
-           <!-- analyst departement -->
+           <!-- analyst  -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -298,13 +298,13 @@
               <p>Analyst</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-line-chart"></i>
             </div>
             <a href="customer_analysis.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <?php } else if($_SESSION['role']=='promotion'){?>
-           <!-- analyst departement -->
+           <!-- analyst  -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -312,14 +312,14 @@
               <p>Promotion</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-product-hunt"></i>
             </div>
             <a href="customer_for_training.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
     <?php } else if($_SESSION['role']=='startup analyst'){?>
-           <!-- analyst departement -->
+           <!-- analyst  -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -327,14 +327,14 @@
               <p>Start Up Analysis</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-line-chart "></i>
             </div>
             <a href="customer_analysis.php?status='startup'" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
    <?php } else if($_SESSION['role']=='existing analyst'){?>
-           <!-- analyst departement -->
+           <!-- analyst  -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -342,14 +342,14 @@
               <p>Existing Analysis</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-line-chart "></i>
             </div>
             <a href="customer_analysis.php?status='existing'" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
         <?php } else if($_SESSION['role']=='special analyst'){?>
-           <!-- analyst departement -->
+           <!-- analyst -->
            <div class="col-lg-3 col-xs-6">
           <div class="small-box" style="background-color:#32a89b">
             <div class="inner">
@@ -357,7 +357,7 @@
               <p>Special Analysis</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-line-chart"></i>
             </div>
             <a href="customer_analysis.php?status='special'" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -372,7 +372,7 @@
                 <p>Attendance</p>
               </div>
               <div class="icon">
-                <i class="fa fa-desktop"></i>
+                <i class="fa fa-bandcamp"></i>
               </div>
               <a href="attendnace_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -389,7 +389,7 @@
               <p>Leave Request</p>
             </div>
             <div class="icon">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-times-rectangle"></i>
             </div>
             <a href="leave_request.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>

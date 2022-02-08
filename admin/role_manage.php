@@ -38,12 +38,15 @@
   <!-- <div class="col-md-1"></div> -->
   <div class="box">
       <div class="box-header  text-center">
-        <h3 class="box-title">Manage Role</h3>
+        <h3 class="box-title text-primary">Manage Role</h3>
     </div>
   <div class="col-md-6">
-     <form action="" method="post">
-        <input type="submit" class="btn btn-primary btn-sm pull-right" name="add_role" value="ADD NEW ROLE">
-    </form>
+    <div class="row text-center">
+        <form action="" method="post">
+            <input type="submit" class="btn btn-primary btn-lg" name="add_role" value="ADD NEW ROLE">
+        </form><hr>
+    </div>
+ 
     <div class="box-body table-responsive col-md-12">
       <table id="example1" class="table table-hover table-bordered">
         <thead>
@@ -57,7 +60,7 @@
         <tbody>
         <?php
           
-                $result = GetRole();
+               $result = GetRole();
                while($row = $result->fetch_assoc()){?>
 
           <tr>

@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -97,13 +97,11 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Gender</th>
-                          <th>Age</th>
                           <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
                           <th>Action</th>
                           <th>Action</th>
+                          <th>Action</th>
+                          <th>Analized</th>
                           <th>Ready for Training</th>
                         </tr>
                         </thead>
@@ -111,15 +109,15 @@
 
                              <?php
 
-                                $sql = "SELECT * from `registration` where `analyst`='true'";
+                                $sql = "SELECT * from `registration` where `analized`='yes'";
                                 
             
                                 if(isset($_GET['custom_status'])){
 
                                    $status = $_GET['custom_status'];
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analyst`='true' ";
+                                    $sql = "SELECT * from `registration` WHERE `exprience_level`='$status' and `analized`='yes' ";
                                     if($status=='all'){
-                                      $sql = "SELECT * from `registration` where `analyst`='true'";
+                                      $sql = "SELECT * from `registration` where `analized`='yes'";
                                     }
                                   }
                           
@@ -127,32 +125,44 @@
 
                                 if(isset($_GET['status'])){
                                   $status = $_GET['status'];
-                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analyst`='true'"; 
+                                    $sql = "SELECT * from `registration` WHERE `exprience_level`=$status and `analized`='yes'"; 
                                 }
 
                                 $res = $connect->query($sql);
                                 while($row = $res->fetch_assoc()){
                                 $c_id =  $row['c_id'];
                               ?>
+
                               <tr>
                                   <td><?php echo $row['c_id']; ?></td>
-                                  <td><?php echo $row['c_name']; ?></td>
+                                  <td><?php echo $row['f_name']." ".$row['m_name']." ".$row['l_name']; ?></td>
                                   <td><?php echo $row['c_email']; ?></td>
                                   <td><?php echo $row['c_mobile']; ?></td>
-                                  <td><?php echo $row['gender']; ?></td>
-                                  <td><?php echo $row['age']; ?></td>
                                   <td><?php echo $row['exprience_level']; ?></td>
-                                  <td><?php echo $row['exprience_year']; ?></td>
-                                  <td><?php echo $row['address']; ?></td>
-
+                            
+                                  <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>
                                   <td><a href="customer_edit.php?edit_id=<?php echo $c_id;?>" class="btn btn-primary">Edit</a></td>
                                   <td><a href="customer_manage.php?delete_id=<?php echo $c_id;?>" class="btn btn-danger">Delete</a></td>
+
+                                  <td>
+                                  <?php 
+                                   if($row['ready_for_training']=='yes'){
+                                     echo "<p class='text-info'>Yes</p>";
+                                   }else{
+                                     echo "<p class='text-info'>No</p>";
+                                   } 
+                                  ?>
+                                    
+                                  
+                                  </td>
+
                                   <?php 
                                   if($row['ready_for_training']=='yes'){?>
                                     <td><p class="text-success">approved</p></td>       
                                   <?php } else{ ?>
                                     <td><a href="customer_analysis.php?training_id=<?php echo $c_id;?>" class="btn btn-info">Approve</a></td>
                                   <?php } ?>
+
                               </tr>
 
                               <?php } ?>
@@ -160,17 +170,16 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                         <th>C.Id</th>
+                          <th>C.Id</th>
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Gender</th>
-                          <th>Age</th>
                           <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
                           <th>Action</th>
                           <th>Action</th>
+                          <th>Action</th>
+                          <th>Analized</th>
+                          <th>Ready For Training</th>
                         </tr>
                         </tfoot>
                       </table>

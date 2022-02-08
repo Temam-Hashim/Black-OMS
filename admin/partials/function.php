@@ -285,22 +285,25 @@ require_once "db.php";
     }
 
 
-    function UpdateCustomer($id,$name,$email,$mobile,$gender,$age,$exp_level, $exp_year,$address){
+    function UpdateCustomer($id,$fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type){
         global $connect;
-        $sql = "UPDATE `registration` SET `c_name`='$name',
-                                          `c_email`='$email',`c_mobile`='$mobile',
-                                          `gender`='$gender',`age`='$age',
-                                          `exprience_level`='$exp_level',
-                                          `exprience_year`='$exp_year',
-                                          `address`='$address'
-                                           WHERE `c_id`='$id'";
-         $res = $connect->query($sql);
+        $sql = "UPDATE `registration` SET `f_name`='$fname',`m_name`='$mname',
+            `l_name`='$lname',`c_email`='$email',`c_mobile`='$mobile',`gender`='$gender',
+            `dob`='$dob',`age`='$age',`birth_place`='$birth_place',`martial_status`='$martial_status',
+            `occupation`='$occupation',`employment_type`='$employment_type',`nationality`='$nationality',
+            `current_address`='$current_address',`permanent_address`='$permanent_address',
+            `education_background`='$education_background',`education_level`='$education_level',
+            `salary_range`='$salary_range',`exprience_level`='$exp_level',
+            `exprience_year`='$exp_year',`emergency_contact`='$emergency_contact'
+            WHERE `c_id`='$id'";   
+
+        $res = $connect->query($sql);
         if($res){
             $message = "<div class='alert alert-success text-center'>Customer with name $fname $mname $lname is successfully Updated. <a href='customer_manage.php' class='btn btn-primary'>View Customer</a></div>";
             header("Location:customer_edit.php?edit_id=$id&message=$message");
         }else{
-            $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $name. Please try again!</div>";
-            header("Location:customer_manage.php?message=$message");
+            $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $fname $mname $lname. Please try again!</div>";
+            header("Location:customer_edit.php?edit_id=$id&message=$message");
             echo mysqli_error($connect);
         }
     }

@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Approve Leave</li>
       </ol>
     </section>
@@ -41,7 +41,7 @@
 
                 <div class="box">
                     <div class="box-header text-center">
-                      <h2 class="box-title text-info">Approve Leave request</h2>
+                      <h2 class="box-title text-primary">Approve Leave request</h2>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">

@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -34,7 +34,7 @@
                         // send to analyst
                         if(isset($_GET['send_id'])){
                           $send_id = $_GET['send_id'];
-                          $sql = "UPDATE `registration` set `analyst`='true' where `c_id`='$send_id'";
+                          $sql = "UPDATE `registration` set `analized`='yes' where `c_id`='$send_id'";
                           $res = $connect->query($sql);
                           if($res){
                               $message = "<div class='alert alert-success text-center'>This Customer been sent Successfully to Analyst. </div>";
@@ -47,12 +47,13 @@
                         }
 
                       ?>
-                    
+                   <div class="box-header text-center">
+                      <h3 class="box-title text-primary">Manage Customer</h3>
+                    </div>
                         <!-- add attendnace button -->
-                        <div class="row text-center mx-auto" style="margin-right:15px">
+                        <div class="row mx-auto" style="margin-right:15px">
                           <form action="" >
                               <div class="form-group">
-                                <div class="col-md-3"></div>
                                 <div class="col-md-3">
                                 <?php if($_SESSION['role']=='relation' || $_SESSION['role']=='admin' ){ ?>
                                   <select class="form-control" name="custom_status" onchange="this.form.submit();">
@@ -89,14 +90,11 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Gender</th>
-                          <th>Age</th>
                           <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
                           <th>Action</th>
                           <th>Action</th>
                           <th>Action</th>
+                          <th>Analized</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -124,42 +122,34 @@
                               ?>
                               <tr>
                                   <td><?php echo $row['c_id']; ?></td>
-                                  <td><?php echo $row['c_name']; ?></td>
+                                  <td><?php echo $row['f_name']." ".$row['m_name']." ".$row['l_name'];; ?></td>
                                   <td><?php echo $row['c_email']; ?></td>
                                   <td><?php echo $row['c_mobile']; ?></td>
-                                  <td><?php echo $row['gender']; ?></td>
-                                  <td><?php echo $row['age']; ?></td>
                                   <td><?php echo $row['exprience_level']; ?></td>
-                                  <td><?php echo $row['exprience_year']; ?></td>
-                                  <td><?php echo $row['address']; ?></td>
-
+                                  <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>
                                   <td><a href="customer_edit.php?edit_id=<?php echo $c_id;?>" class="btn btn-primary">Edit</a></td>
                                   <td><a href="customer_manage.php?delete_id=<?php echo $c_id;?>" class="btn btn-danger">Delete</a></td>
                                   <td>
-                                    <?php if($row['analyst']=='false'){ ?>
-                                      <a href="customer_manage.php?send_id=<?php echo $c_id;?>" class="btn btn-warning">Send to Analyst</a>
+                                    <?php if($row['analized']=='yes'){ ?>
+                                      <p class="text-success">yes</p>
                                     <?php } else { ?>
-                                      <p class="text-success">Sent to Analyst</p>
+                                      <a href="customer_manage.php?send_id=<?php echo $c_id;?>" class="btn btn-warning">Send to Analyst</a>
                                     <?php } ?>
                                 </td>
                               </tr>
                               <?php } ?>
-
                         </tbody>
                         <tfoot>
                         <tr>
-                         <th>C.Id</th>
+                          <th>C.Id</th>
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Gender</th>
-                          <th>Age</th>
                           <th>Exprince Level</th>
-                          <th>Exprience Year</th>
-                          <th>Address</th>
                           <th>Action</th>
                           <th>Action</th>
                           <th>Action</th>
+                          <th>Analyzied</th>
                         </tr>
                         </tfoot>
                       </table>

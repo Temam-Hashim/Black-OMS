@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Leave History</li>
       </ol>
     </section>
@@ -37,7 +37,7 @@
 
                 <div class="box">
                     <div class="box-header text-center">
-                      <h2 class="box-title text-info">Leave History</h2>
+                      <h2 class="box-title text-primary">Leave History</h2>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
