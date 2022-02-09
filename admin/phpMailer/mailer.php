@@ -39,7 +39,7 @@ function PHP_MAILER($to,$from,$subject,$body){
 
             //Attachments
             // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            $mail->addAttachment('images/logo.png', 'Black Logo');    //Optional name
+            // $mail->addAttachment('images/logo.png', 'Black Logo');    //Optional name
 
              // send html content
            //$mail->msgHTML(file_get_contents('contents.html'), __DIR__);
