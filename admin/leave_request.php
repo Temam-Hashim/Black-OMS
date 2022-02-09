@@ -14,7 +14,7 @@
         <small>Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<script>return window.history.go(-1)</script>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Leave request</li>
       </ol>
     </section>

@@ -59,7 +59,7 @@
           <li class="list-group-item"><?php echo $row['role']; ?></li>
         </ul>
       <div class="card-body text-center">
-          <a href="<script>return window.history.go(-1)</script>" class="btn btn-sm btn-primary Mybtn">Home</a>
+          <a href="#" class="btn btn-sm btn-primary Mybtn">Home</a>
           <a href="profile.php" class="btn btn-sm btn-info Mybtn">Profile</a>
       </div>
     </div>
