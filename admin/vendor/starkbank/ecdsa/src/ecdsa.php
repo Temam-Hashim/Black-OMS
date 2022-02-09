@@ -5,7 +5,7 @@ use EllipticCurve\Signature;
 
 
 class Ecdsa {
-
+    
     public static function sign ($message, $privateKey) {
         $signature = null;
         openssl_sign($message, $signature, $privateKey->openSslPrivateKey, OPENSSL_ALGO_SHA256);

@@ -36,9 +36,9 @@ class PrivateKey {
 
     function toDer () {
         $pem = $this->toPem();
-
+    
         $lines = array();
-        foreach(explode("\n", $pem) as $value) {
+        foreach(explode("\n", $pem) as $value) { 
             if (substr($value, 0, 5) !== "-----") {
                 array_push($lines, $value);
             }
@@ -56,7 +56,7 @@ class PrivateKey {
 
     static function fromPem ($str) {
         $rebuilt = array();
-        foreach(explode("\n", $str) as $line) {
+        foreach(explode("\n", $str) as $line) { 
             $line = trim($line);
             if (strlen($line) > 1) {
                 array_push($rebuilt, $line);
