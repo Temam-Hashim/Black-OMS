@@ -10,7 +10,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 //Instantiation and passing `true` enables exceptions
 function PHP_MAILER($to,$from,$subject,$body){
