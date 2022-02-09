@@ -55,7 +55,11 @@
                         $body.=  "<p class='bg-danger'>Please do not replay to this email. this is sytem generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
                         $body.=  "<p>THANK YOU FOR CHOOSING US.</p><br>";
 
-                        PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
+                        if(PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body)){
+                          echo "<script>alert('Email Sent')</script>";
+                        }else{
+                          echo "<script>alert('Email Not Sent')</script>";
+                        }
                       }
 
 
