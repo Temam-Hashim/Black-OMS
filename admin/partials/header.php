@@ -5,7 +5,7 @@ require_once "session.php";
 require_once "db.php";
 require_once "function.php";
 // import mailer
-require_once "../phpMailer/mailer.php";
+require_once "phpMailer/mailer.php";
 ?>
 
 <?php require_once "head.php"; ?>
