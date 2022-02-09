@@ -58,7 +58,7 @@
                         if(PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body)){
                           echo "<div class='alert alert-danger text-center'>Email Successfully Sent to Selected Customer!</div>";
                         }else{
-                          echo "<div class='alert alert-danger text-center'>Could Not Deliver Your Email Please Try Again!</div>";;
+                          echo "<div class='alert alert-info text-center'>Could Not Deliver Your Email Please Try Again!</div>";;
                         }
                       }
 
