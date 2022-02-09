@@ -33,7 +33,7 @@
         <small>Attendnace</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<script>return window.history.go(-1)</script>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Attendance</li>
       </ol>
     </section>
@@ -53,7 +53,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-4">
   <div class="card text-center bg-gray" id="card-display">
-        <img class="card-img-top img-resposive img-circle img-card" src="../images/<?php echo $row['st_pic'] ?>">
+        <img class="card-img-top img-responsive img-circle img-card" src="../images/<?php echo $row['st_pic'] ?>">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['st_name']; ?></h5>
           <p class="card-text"></p>

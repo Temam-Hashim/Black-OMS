@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<script>return window.history.go(-1)</script>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -48,17 +48,17 @@
   
                         $body = "<p>Dear $c_name,<br><hr> </p>";
                         $body.= "<p>After reviewing your application for $exp_level level. <br></p>";
-                        $body.= "<p>We have found out your exprience and data provided to our company is fully fit.<br></p>";
+                        $body.= "<p>We have found out your experience and data provided to our company is fully fit.<br></p>";
                         $body.= "<p>Hence we have decided to provided you training that will match your next professional journey and lead you the right way of achieving your business.<br></p>";
-                        $body.= "Therefor you are requested to pay traing fee of Birr. $training_fee with 10 conscuative day to start your training.<br><hr><hr>";
+                        $body.= "Therefor you are requested to pay training fee of Birr. $training_fee with 10 consecutive day to start your training.<br><hr><hr>";
                         $body.=  "<p>FROM BLACK FINANCIAL SOLUTION</p><br>";
-                        $body.=  "<p class='bg-danger'>Please do not replay to this email. this is sytem generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
+                        $body.=  "<p class='bg-danger'>Please do not replay to this email. this is system generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
                         $body.=  "<p>THANK YOU FOR CHOOSING US.</p><br>";
 
                         if(PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body)){
-                          echo "<script>alert('Email Sent')</script>";
+                          echo "<div class='alert alert-danger text-center'>Email Successfully Sent to Selected Customer!</div>";
                         }else{
-                          echo "<script>alert('Email Not Sent')</script>";
+                          echo "<div class='alert alert-danger text-center'>Could Not Deliver Your Email Please Try Again!</div>";;
                         }
                       }
 
@@ -95,11 +95,11 @@
   
                                   $body = "<p>Dear $c_name,<br><hr> </p>";
                                   $body.= "<p>After reviewing your application for $exp_level level. <br></p>";
-                                  $body.= "<p>We have found out your exprience and data provided to our company is fully fit.<br></p>";
+                                  $body.= "<p>We have found out your experience and data provided to our company is fully fit.<br></p>";
                                   $body.= "<p>Hence we have decided to provided you training that will match your next professional journey and lead you the right way of achieving your business.<br></p>";
-                                  $body.= "Therefor you are requested to pay traing fee of Birr. $training_fee with 10 conscuative day to start your training.<br><hr><hr>";
+                                  $body.= "Therefor you are requested to pay training fee of Birr. $training_fee with 10 consecutive day to start your training.<br><hr><hr>";
                                   $body.=  "<p>FROM BLACK FINANCIAL SOLUTION</p><br>";
-                                  $body.=  "<p class='bg-danger'>Please do not replay to this email. this is sytem generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
+                                  $body.=  "<p class='bg-danger'>Please do not replay to this email. this is system generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
                                   $body.=  "<p>THANK YOU FOR CHOOSING US.</p><br>";
 
                                   PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);

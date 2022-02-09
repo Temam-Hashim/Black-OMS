@@ -50,12 +50,7 @@ function PHP_MAILER($to,$from,$subject,$body){
             $mail->Body    = $body;
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-            if($mail->send()){
-               echo "<script>alert('Email Sent')</script>";
-            }else{
-              echo "<script>alert('Email not Sent')</script>";
-            }
-
+           $mail->send();
 
         } catch (Exception $e) {
 

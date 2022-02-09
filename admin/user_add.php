@@ -12,7 +12,7 @@
         <small>Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<script>return window.history.go(-1)</script>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
     </section>
