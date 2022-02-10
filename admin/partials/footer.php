@@ -206,10 +206,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
 
-<!-- jQuery 3 -->
+<!-- jQuery offline -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/jquery/src/ajax/load.js"></script>
+
+<!-- jquery online -->
+<!-- <script src="jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <!-- jQuery UI 1.11.4 -->
 <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
@@ -257,7 +261,14 @@
 
 <!-- page script -->
 
+
 <script>
+
+// loader
+
+
+
+
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
@@ -410,18 +421,8 @@
 
 }
 
-        //loader
-
-var div_box = "<div id='load-screen'><div id='loading'></div></div>";
-
-$("body").prepend(div_box);
-
-$('#load-screen').delay(700).fadeOut(600, function(){
-  $(this).remove();
 });
 
-
-});
 
 
 

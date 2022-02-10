@@ -20,6 +20,7 @@
             <!-- implementation -->
 
                      <?php
+                     $roll_back = 2;
                       if(isset($_GET['message'])){
                           echo $_GET['message'];
                       }
@@ -71,7 +72,7 @@
 
                             $res = GetDataById('registration','c_id',$c_id);
                             while($row = $res->fetch_assoc()){
-                              $c_name = $row['c_name'];
+                              $c_name = $row['f_name']." ".$row['m_name']." ".$row['l_name'];
                               $exp_level = $row['exprience_level'];
                               $email = $row['c_email'];
                               // traiing fee
@@ -110,19 +111,26 @@
                               $sql = "UPDATE `registration` set `ready_for_training`='no' where `c_id`='$c_id'";
                               $res = $connect->query($sql);
                               if($res){
-                                echo "<div class='alert alert-info text-center'>Customer Successfully Rolled Back to Analyst for Further Review</div>";
-                                
+                                $roll_back = 1;
                               }else{
-                               echo "<div class='alert alert-danger text-center'>Failed to Roll Back Customer. Please Try Again!</div>";
-                              
-                                // echo mysqli_error($connect);
-                            }
+                                $roll_back = 0;
+                              }
+                             
+
 
                             }
 
                           }
                         }
-
+                        if($roll_back==1){
+                            echo "<div class='alert alert-info text-center'>Customer Successfully Rolled Back to Analyst for Further Review</div>"; 
+                          }
+                          else if($roll_back==0){
+                           echo "<div class='alert alert-danger text-center'>Failed to Roll Back Customer. Please Try Again!</div>";
+                        }else{
+                          echo " ";
+                        }
+                        
                       ?>
  
                         <!-- add attendnace button -->

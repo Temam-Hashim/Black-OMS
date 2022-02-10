@@ -10,11 +10,66 @@ require_once "phpMailer/mailer.php";
 
 <?php require_once "head.php"; ?>
 
+<style>
+  .loader_bg{
+    position:fixed;
+    z-index: 999999;
+    background:#fff;
+    width: 100%;
+    height: 100%;
+  }
+  .loader{
+    margin-top: 15%;
+    margin-left:40%;
+    border: 0 solid transparent;
+    border-radius:50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top:calc(50vh - 75);
+    left:calc(50vw - 75);
+  }
+  .loader:before, .loader:after{
+    content:'';
+    border:1rem solid #ff5733;
+    border-radius:50%;
+    width:inherit;
+    height:inherit;
+    position:absolute;
+    top:0;
+    left:0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+  }
+  .loader:before{
+    animation-delay:.5s
+
+  }
+  @keyframes loader{
+    0%{
+      transform:scale(0);
+      opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      transform:scale(1);
+      opacity: 0;
+    }
+  }
+</style>
+
+
 <body class="hold-transition skin-blue sidebar-mini">
+    <!-- loader -->
+<div class="row loader_bg">
+      <div class="loader"></div>
+ </div>
+
+
 <div class="wrapper">
 
-<!-- loader -->
-<div id="loader"></div>
 
   <header class="main-header">
     <!-- Logo -->
@@ -92,3 +147,14 @@ require_once "phpMailer/mailer.php";
       </div>
     </nav>
   </header>
+
+
+
+  
+
+<script>
+   setTimeout(() => {
+     $('.loader_bg').fadeToggle();
+     
+   }, 2000);
+ </script>
