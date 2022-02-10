@@ -156,5 +156,5 @@ require_once "phpMailer/mailer.php";
    setTimeout(() => {
      $('.loader_bg').fadeToggle();
      
-   }, 2000);
+   }, 5000);
  </script>
