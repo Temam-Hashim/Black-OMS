@@ -208,6 +208,9 @@
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery/src/ajax/load.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -320,9 +323,9 @@
       showInputs: false
     })
   })
-</script>
-<!-- data table -->
-<script>
+
+// <!-- data table -->
+
   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({
@@ -334,9 +337,9 @@
       'autoWidth'   : false
     })
   })
-</script>
-<!-- ck editor -->
-<script>
+
+// <!-- ck editor -->
+
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
@@ -344,23 +347,20 @@
     //bootstrap WYSIHTML5 - text editor
     $('.textarea').wysihtml5()
   })
-</script>
 
-<script>
   $("#form").submit(function(event){
    loadAjax();
    event.preventDefault()
 })
-</script>
-<!-- select all check box -->
 
 
-<script type="text/javascript">
+// <!-- select all check box -->
+
  
     //bulk selector
     $('#checkAll').click(function(event){
 
-if(this.checked) {
+   if(this.checked) {
 
     $('.checkEachBoxes').each(function(){
 
@@ -382,19 +382,15 @@ if(this.checked) {
 
 });
 
-</script>
 
-<!-- check user -->
-</script>
-<!-- select all check box -->
+// <!-- select all check box -->
 
 
-<script type="text/javascript">
  
     //bulk selector
     $('#checkAllUser').click(function(event){
 
-if(this.checked) {
+    if(this.checked) {
 
     $('.checkEachBoxes').each(function(){
 
@@ -414,7 +410,22 @@ if(this.checked) {
 
 }
 
+        //loader
+
+var div_box = "<div id='load-screen'><div id='loading'></div></div>";
+
+$("body").prepend(div_box);
+
+$('#load-screen').delay(700).fadeOut(600, function(){
+  $(this).remove();
 });
+
+
+});
+
+
+
+
 
 </script>
 

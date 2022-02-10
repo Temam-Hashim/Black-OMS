@@ -377,6 +377,21 @@
               <a href="attendnace_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+      <?php } else if($_SESSION['role']=='HRM'){?>
+           <!-- attendnace -->
+          <div class="col-lg-3 col-xs-6">
+            <div class="small-box " style="background-color:#1b93e3">
+              <div class="inner">
+                <h3><?php echo $staff_count ?></h3>
+                <p>Staff</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-bandcamp"></i>
+              </div>
+              <a href="staff_manage.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
       <?php } ?>
 
 
@@ -394,23 +409,96 @@
             <a href="leave_request.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- service widget-->
+  </div>
 
 
-               <!-- About widget-->
+      <!-- chart -->
 
 
-               <!-- awards widget-->
+
+<hr>
+
+<?php 
+// new customer
+$rs1 = GetDataById('registration','exprience_level','startup');
+$startup_count = $rs1->num_rows;
+
+$rs2 = GetDataById('registration','exprience_level','existing');
+$existing_count = $rs2->num_rows;
+
+$rs3 = GetDataById('registration','exprience_level','special');
+$special_count = $rs3->num_rows;
+
+$sum1 = $startup_count+$existing_count+$special_count;
+
+// analyzed
 
 
-               <!-- mailbox widget-->
+$sql4 = "SELECT * FROM `registration` WHERE `exprience_level`='startup' and `analized`='yes'";
+$rs4 = $connect->query($sql4);
+$an_startup_count = $rs4->num_rows;
 
-                       <!-- skill widget-->
+$sql5 = "SELECT * FROM `registration` WHERE `exprience_level`='existing' and `analized`='yes'";
+$rs5 = $connect->query($sql5);
+$an_existing_count = $rs5->num_rows;
+
+$sql6 = "SELECT * FROM `registration` WHERE `exprience_level`='special' and `analized`='yes'";
+$rs6 = $connect->query($sql6);
+$an_special_count = $rs4->num_rows;
+
+$sum2 = $an_startup_count+$an_existing_count+$an_special_count;
 
 
-                       <!-- service widget-->
 
+// ready for training
 
-                              <!-- testimonal widget-->
+$sql7 = "SELECT * FROM `registration` WHERE `exprience_level`='startup' and `ready_for_training`='yes'";
+$rs7 = $connect->query($sql7);
+$tr_startup_count = $rs7->num_rows;
 
-      </div>
+$sql8 = "SELECT * FROM `registration` WHERE `exprience_level`='existing' and `ready_for_training`='yes'";
+$rs8 = $connect->query($sql8);
+$tr_existing_count = $rs8->num_rows;
+
+$sql9 = "SELECT * FROM `registration` WHERE `exprience_level`='special' and `ready_for_training`='yes'";
+$rs9 = $connect->query($sql9);
+$tr_special_count = $rs9->num_rows;
+
+$sum3 = $tr_startup_count+$tr_existing_count+$tr_special_count;
+
+?>
+
+<?php if($_SESSION['role']=='admin' || $_SESSION['role']=='analyst' || $_SESSION['role']=='relation' || $_SESSION['role']=='promotion'){ ?>
+  <div class="row">
+      <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Name', 'Start Up', 'Existing', 'Special','Total'],
+          ['New Customer', '<?php echo $startup_count ?>', '<?php echo $existing_count ?>','<?php echo $special_count ?>' ,'<?php echo $sum1; ?>'],
+          ['Analyzed Customer','<?php echo $an_startup_count ?>' , '<?php echo $an_existing_count ?>', '<?php echo $an_special_count ?>','<?php echo $sum2; ?>'],
+          ['Ready For Training', '<?php echo $tr_startup_count ?>', '<?php echo $tr_existing_count ?>', '<?php echo $tr_special_count ?>','<?php echo $sum3; ?>'],
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Start Up, Existing, Special',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+    </div>
+
+    <?php } ?>
+
+          <div id="columnchart_material" style="width:100;height:500px;"></div>
+<!-- /google chart-->
+

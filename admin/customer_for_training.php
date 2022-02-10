@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -61,7 +61,6 @@
                           echo "<div class='alert alert-info text-center'>Could Not Deliver Your Email Please Try Again!</div>";;
                         }
                       }
-
 
                       // <!-- delete attendnace -->
 
@@ -178,6 +177,7 @@
                           <th>Analyzed</th>
                           <th>Ready for Training</th>
                           <th>Action</th>
+                          <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -215,6 +215,7 @@
                                   <td><?php echo $row['exprience_level']; ?></td>
                                   <td><p class="text-success">Yes</p></td> 
                                   <td><p class="text-success">Yes</p></td>  
+                                  <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>
                                   <td><a href="customer_for_training.php?send_id=<?php echo $c_id;?>" class="btn btn-primary">Send Email</a></td>   
                               </tr>
 

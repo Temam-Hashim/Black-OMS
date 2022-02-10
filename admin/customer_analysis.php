@@ -10,7 +10,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Customer</li>
       </ol>
     </section>
@@ -25,7 +25,7 @@
                       if(isset($_GET['message'])){
                           echo $_GET['message'];
                       }
-                      // <!-- delete attendnace -->
+                      // <!-- delete attendance -->
                         if(isset($_GET['delete_id'])){
                         Delete('registration','c_id',$_GET['delete_id'],'customer_manage.php');
                         }
@@ -63,7 +63,7 @@
                         }
                       ?>
  
-                        <!-- add attendnace button -->
+                        <!-- add attendance button -->
                         <div class="row text-center mx-auto" style="margin-right:15px">
                           <form action="" >
                               <div class="form-group">
@@ -72,7 +72,7 @@
                                 <?php if($_SESSION['role']=='analyst' || $_SESSION['role']=='admin' || $_SESSION['role']=='promotion' ){ ?>
                                   <select class="form-control" name="custom_status" onchange="this.form.submit();">
                                       <option value="">Select By Status</option>
-                                      <option value="all">Veiw All</option>
+                                      <option value="all">View All</option>
                                       <option value="startup">Start Up</option>
                                       <option value="existing">Existing</option>
                                       <option value="special">Special</option>
@@ -97,11 +97,11 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Exprince Level</th>
+                          <th>Experience Level</th>
                           <th>Action</th>
                           <th>Action</th>
                           <th>Action</th>
-                          <th>Analized</th>
+                          <th>Analyzed</th>
                           <th>Ready for Training</th>
                         </tr>
                         </thead>
@@ -174,11 +174,11 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Exprince Level</th>
+                          <th>Experience Level</th>
                           <th>Action</th>
                           <th>Action</th>
                           <th>Action</th>
-                          <th>Analized</th>
+                          <th>Analyzed</th>
                           <th>Ready For Training</th>
                         </tr>
                         </tfoot>

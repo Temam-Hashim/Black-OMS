@@ -67,9 +67,24 @@
           </ul>
         </li>
 
+              <!-- Hrm -->
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>HRM Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="staff_manage.php"><i class="fa fa-circle-o"></i>Manage Staff</a></li>
+            <li><a href="staff_add.php"><i class="fa fa-circle-o"></i>Add new Staff</a></li>
+          </ul>
+        </li>
+
         
             <!-- operation department -->
-            <li class="treeview">
+          <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Relational Department</span>
             <span class="pull-right-container">
@@ -116,20 +131,7 @@
           </ul>
         </li>
 
-        <!-- Staff -->
 
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Staff</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="staff_manage.php"><i class="fa fa-circle-o"></i>Manage Staff</a></li>
-            <li><a href="staff_add.php"><i class="fa fa-circle-o"></i>Add new Staff</a></li>
-          </ul>
-        </li>
         <!-- Salary -->
 
         <li class="treeview">
@@ -197,6 +199,22 @@
           </a>
         </li>
         <li>
+
+  <?php } else if($_SESSION['role']=='HRM'){ ?>
+
+       
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-table"></i> <span>HRM Department</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="staff_manage.php"><i class="fa fa-circle-o"></i>Manage Staff</a></li>
+        <li><a href="staff_add.php"><i class="fa fa-circle-o"></i>Add new Staff</a></li>
+      </ul>
+    </li>
     
 <?php } else if($_SESSION['role']=='reception') { ?>
         <!-- reception -->
@@ -271,7 +289,7 @@
             <li><a href="customer_manage.php?status='special'"><i class="fa fa-circle-o"></i>View Special</a></li>
           </ul>
         </li>
-        
+      
  
   <?php } else if($_SESSION['role']=='analyst') { ?>
             <!-- analyst -->
@@ -379,7 +397,7 @@
           </ul>
         </li>
 
-  <!-- maange attendance -->
+  <!-- manage attendance -->
        <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Attendance</span>
@@ -394,7 +412,7 @@
           </ul>
         </li>
  <?php } else if($_SESSION['role']=='attendance') { ?>
-          <!-- maange attendance -->
+          <!-- manage attendance -->
        <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Attendance</span>

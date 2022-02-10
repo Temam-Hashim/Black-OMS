@@ -13,6 +13,9 @@ require_once "phpMailer/mailer.php";
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+<!-- loader -->
+<div id="loader"></div>
+
   <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -31,9 +34,9 @@ require_once "phpMailer/mailer.php";
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
 
-        <!-- import notiification message and task here -->
+        <!-- import notification message and task here -->
 
-         <!-- ///import notiification message and task here -->
+         <!-- ///import notification message and task here -->
 
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">

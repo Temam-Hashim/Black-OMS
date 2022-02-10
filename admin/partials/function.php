@@ -8,9 +8,7 @@ require_once "db.php";
 
             $sql = "SELECT * FROM `departments`";
             $result = $connect->query($sql);
-
             return $result;
-
     }
 
     function AddDepartment($dp_name){
@@ -25,7 +23,6 @@ require_once "db.php";
             // echo mysqli_error($connect);
             header("Location:department_add.php?message=$message");
         }
-
     }
 
     function UpdateDepartment($dp_name,$dp_id){
@@ -50,13 +47,13 @@ require_once "db.php";
         return $connect->query($sql);
     }
 
-    function AddStaff($name,$pic,$mobile,$email,$gender,$dob,$address,$martial_status,$join_date,$dept,$salary,$contract,$position,$bank_name,$acount_no,$status,$qualification){
+    function AddStaff($name,$pic,$mobile,$email,$gender,$dob,$address,$martial_status,$join_date,$dept,$salary,$contract,$position,$bank_name,$account_no,$status,$qualification){
         global $connect;
         $sql = "INSERT INTO `staff`(`st_name`, `st_pic`, `st_mobile`, `st_email`, `st_gender`, `st_dob`, `address`,
                 `martial_status`, `date_of_joining`, `dept`, `salary`, `contract`, `position`, `bank_name`, `acount_no`,
                 `status`,`qualification`)
                  VALUES ('$name','$pic','$mobile','$email','$gender','$dob','$address','$martial_status',
-                 '$join_date','$dept','$salary','$contract','$position','$bank_name','$acount_no','$status',
+                 '$join_date','$dept','$salary','$contract','$position','$bank_name','$account_no','$status',
                  '$qualification')";
 
                 $result = $connect->query($sql);
@@ -70,7 +67,7 @@ require_once "db.php";
                 }
     }
 
-    function UpdateStaff($id,$name,$pic,$mobile,$email,$gender,$dob,$address,$martial_status,$join_date,$dept,$salary,$contract,$position,$bank_name,$acount_no,$status,$qualification){
+    function UpdateStaff($id,$name,$pic,$mobile,$email,$gender,$dob,$address,$martial_status,$join_date,$dept,$salary,$contract,$position,$bank_name,$account_no,$status,$qualification){
         global $connect;
         $sql = "UPDATE `staff`
                 SET `st_name`='$name',
@@ -87,7 +84,7 @@ require_once "db.php";
                     `contract`='$contract',
                     `position`='$position',
                     `bank_name`='$bank_name',
-                    `acount_no`='$acount_no',
+                    `acount_no`='$account_no',
                     `qualification`='$qualification',
                     `status`='$status' WHERE `st_id`='$id' ";
 
@@ -226,10 +223,10 @@ require_once "db.php";
         $res = $connect->query($sql);
 
         if($res){
-            $message = "<div class='alert alert-success text-center'>Attendaance Submitted successfully <a class='btn btn-primary' href='attendance_manage.php'>Manage Attendance</a></div>";
+            $message = "<div class='alert alert-success text-center'>Attendance Submitted successfully </div>";
             header("Location:attendance_add.php?message=$message");
         }else{
-            $message = "<div class='alert alert-danger text-center'>Failed to submit attendnace. Please try again!</div>";
+            $message = "<div class='alert alert-danger text-center'>Failed to submit attendance. Please try again!</div>";
             header("Location:attendance_add.php?message=$message");
             echo mysqli_error($connect);
         }
@@ -241,10 +238,10 @@ require_once "db.php";
         $sql = "UPDATE `attendance` set `status`='$status' where `st_id`='$at_id' ";
         $result = $connect->query($sql);
         if($result){
-            $message = "<div class='alert alert-info text-center'>Attendnace Updated successfully <a href='attendance_manage.php' class='btn btn-primary'>View Attendnace</a></div>";
+            $message = "<div class='alert alert-info text-center'>Attendance Updated successfully ";
             header("Location:attendance_add.php?edit_id=$at_id&message=$message");
         }else{
-            $message = "<div class='alert alert-danger text-center'>Failed to update attendnace. please try again!</div>";
+            $message = "<div class='alert alert-danger text-center'>Failed to update attendance. please try again!</div>";
             header("Location:attendance_add.php?edit_id=$at_id&message=$message");
             // echo mysqli_error($connect);
         }
@@ -299,7 +296,7 @@ require_once "db.php";
 
         $res = $connect->query($sql);
         if($res){
-            $message = "<div class='alert alert-success text-center'>Customer with name $fname $mname $lname is successfully Updated. <a href='customer_manage.php' class='btn btn-primary'>View Customer</a></div>";
+            $message = "<div class='alert alert-success text-center'>Customer with name $fname $mname $lname is successfully Updated.";
             header("Location:customer_edit.php?edit_id=$id&message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $fname $mname $lname. Please try again!</div>";
@@ -376,6 +373,8 @@ require_once "db.php";
         $sql = "SELECT * FROM `$db` WHERE `$param`='$id' ";
         return $connect->query($sql);
     }
+
+
 
 
     function InputValue($input){

@@ -42,6 +42,12 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+ <!--   my google -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!--    google chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
   <!-- mystle sheet-->
 <link rel="stylesheet" href="css/mystyle.css">
 

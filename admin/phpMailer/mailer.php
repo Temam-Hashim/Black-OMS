@@ -102,7 +102,7 @@ function MULTI_MAILER($to,$subject,$body){
 
       // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
 
-      // $mail->addAttachment('images/logo.png', 'AGRO LOGO');    //Optional name
+      // $mail->addAttachment('images/logo.png', 'LOGO');    //Optional name
 
        // send html content
 
@@ -123,7 +123,7 @@ function MULTI_MAILER($to,$subject,$body){
 
       $mail->send();
 
-      echo "<script>alet('Email Sent')</script>";
+
 
 
 

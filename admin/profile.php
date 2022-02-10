@@ -48,7 +48,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-4">
   <div class="card text-center bg-gray" id="card-display">
-        <img class="card-img-top img-resposive img-circle img-card" src="../images/blank.png">
+        <img class="card-img-top img-responsive img-circle img-card" src="../images/blank.png">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['username']; ?></h5>
           <p class="card-text"></p>
@@ -59,7 +59,7 @@
           <li class="list-group-item"><?php echo $row['role']; ?></li>
         </ul>
       <div class="card-body text-center">
-          <a href="#" class="btn btn-sm btn-primary Mybtn">Home</a>
+          <a href="index.php" class="btn btn-sm btn-primary Mybtn">Home</a>
           <a href="profile.php" class="btn btn-sm btn-info Mybtn">Profile</a>
       </div>
     </div>
