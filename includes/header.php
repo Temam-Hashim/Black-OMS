@@ -150,7 +150,7 @@
    setTimeout(() => {
      $('.loader_bg').fadeToggle();
      
-   }, 5000);
+   }, 3000);
  </script>
 
 
