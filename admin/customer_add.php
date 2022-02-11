@@ -391,7 +391,7 @@
            </div>
   
 
-                      <!-- if occupation == emplyed display work type and salary -->
+      <!-- if occupation == emplyed display work type and salary -->
               <div class="row">
                 <div class="col-md-8">
                   <div class="form-group">

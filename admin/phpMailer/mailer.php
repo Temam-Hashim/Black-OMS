@@ -52,7 +52,6 @@ function PHP_MAILER($to,$from,$subject,$body){
 
             $mail->send();
            
-
           } catch (Exception $e) {
 
                   echo $e->getMessage();
