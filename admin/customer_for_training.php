@@ -21,6 +21,7 @@
 
                      <?php
                      $roll_back = 2;
+                     $sent = 2;
                       if(isset($_GET['message'])){
                           echo $_GET['message'];
                       }
@@ -53,14 +54,15 @@
                         $body.= "<p>Hence we have decided to provided you training that will match your next professional journey and lead you the right way of achieving your business.<br></p>";
                         $body.= "Therefor you are requested to pay training fee of Birr. $training_fee with 10 consecutive day to start your training.<br><hr><hr>";
                         $body.=  "<p>FROM BLACK FINANCIAL SOLUTION</p><br>";
-                        $body.=  "<p class='bg-danger'>Please do not replay to this email. this is system generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
+                        $body.=  "<p color='red'>Please do not replay to this email. this is system generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";
                         $body.=  "<p>THANK YOU FOR CHOOSING US.</p><br>";
 
                         if(PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body)){
-                          echo "<div class='alert alert-danger text-center'>Email Successfully Sent to Selected Customer!</div>";
+                          echo "<div class='alert alert-danger text-center'>Could Not Deliver Your Email Please Try Again!</div>";
                         }else{
-                          echo "<div class='alert alert-info text-center'>Could Not Deliver Your Email Please Try Again!</div>";;
+                          echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer!</div>";
                         }
+
                       }
 
                       // <!-- delete attendnace -->
@@ -103,7 +105,7 @@
                                   $body.=  "<p>THANK YOU FOR CHOOSING US.</p><br>";
 
                                   PHP_MAILER($email,'ourgroupemail2018@gmail.com',$subject,$body);
-                                  $sent = true;
+                                  $sent = 1;
                                }
                             
                             if($bulk_option=='roll_back'){
@@ -130,6 +132,16 @@
                         }else{
                           echo " ";
                         }
+
+                        if($sent==1){
+                          echo "<div class='alert alert-info text-center'>Email Successfully Sent to Selected Customer!</div>"; 
+                        }
+                        else if($sent==0){
+                          echo "<div class='alert alert-danger text-center'>Could Not Deliver Your Email Please Try Again!</div>";
+                      }else{
+                        echo " ";
+                      }
+
                         
                       ?>
  
