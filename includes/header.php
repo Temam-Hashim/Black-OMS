@@ -95,15 +95,13 @@
     height: 100%;
   }
   .loader{
-    margin-top: 15%;
-    margin-left:40%;
     border: 0 solid transparent;
     border-radius:50%;
     width: 150px;
     height: 150px;
     position: absolute;
-    top:calc(50vh - 75);
-    left:calc(50vw - 75);
+    top:calc(35vh);
+    left:calc(35vw);
   }
   .loader:before, .loader:after{
     content:'';
