@@ -24,7 +24,7 @@ require_once "phpMailer/mailer.php";
     width: 150px;
     height: 150px;
     position: absolute;
-    top:calc(50vh-40);
+    top:calc(50vh-20);
     left:calc(50vw-40);
   }
   .loader:before, .loader:after{
@@ -154,5 +154,5 @@ require_once "phpMailer/mailer.php";
    setTimeout(() => {
      $('.loader_bg').fadeToggle();
      
-   }, 3000);
+   }, 3500);
  </script>
