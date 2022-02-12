@@ -12,7 +12,7 @@
         //  $db['db_name'] = "sql6470805";
 
               // cloud server 2
-      $db['db_host'] = "sql209.epizy.com";
+      $db['db_host'] = "sql209.byetcluster.com";
       $db['db_user'] = "epiz_28434227";
       $db['db_password'] = "7VkVvVtgUZ";
       $db['db_name'] = "epiz_28434227_black_office";
