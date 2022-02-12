@@ -24,8 +24,8 @@ require_once "phpMailer/mailer.php";
     width: 150px;
     height: 150px;
     position: absolute;
-    top:calc(35vh);
-    left:calc(35vw);
+    top:calc(50vh);
+    left:calc(50vw);
   }
   .loader:before, .loader:after{
     content:'';
