@@ -51,11 +51,11 @@
                             <table id="" class="table table-bordered table-striped">
                               <thead>
                               <tr>
-                                <th>Staff Name</th>
-                                <th>Basic Salary</th>
+                                <th>Staff_Name</th>
+                                <th>Basic_Salary</th>
                                 <th>Allowance</th>
-                                <th>No of Day</th>
-                                <th>tax</th>
+                                <th>No _of_Day</th>
+                                <th>tax_rate</th>
                                 <th>Action</th>
                               </tr>
                               </thead>
