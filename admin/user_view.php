@@ -43,8 +43,8 @@
               <h3 class="box-title text-primary">Manage System Users</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped table-responsive">
+            <div class="box-body table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>S.No</th>
