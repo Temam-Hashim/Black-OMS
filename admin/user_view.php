@@ -46,7 +46,6 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped table-responsive">
                 <thead>
-
                 <tr>
                   <th>S.No</th>
                   <th>UserName</th>
