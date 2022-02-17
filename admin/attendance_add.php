@@ -145,8 +145,9 @@
             $status = "A";
           }
           // check if the user is added to attendnace today
-
+          if(!empty($staff_name)){
            AddAttendance($staff_name,$date,$status);
+          }
 
        }
     }

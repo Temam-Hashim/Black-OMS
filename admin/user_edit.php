@@ -112,6 +112,7 @@ if(isset($_POST['update_user'])) {
     $body.= "<p>Email Address: <b style='color:green'>$email</b> <hr></p>";
     $body.= "<p>Password: <b style='color:green'>$password</b> <hr></p>";
     $body.= "<p>Your Role:  <b style='color:green'>$user_role</b> <hr></p>";
+    $body.= "<p>Website Link:  <b color='green'><a href='https://black-office-system.herokuapp.com/'>Black financial Solution Official Web Site</a></b> <hr></p>";
     $body.= "<p>You can use either your username or your email in username field to login to our platform.<hr><hr><br></p>";
     $body.= "<div style='color:blue'><b>NOTE:</b> Please never ever share this credential to any one, even if some one you trust. All the data is sensetive and can not be recovered once deleted. this detail is only for your own usage as staff member as per your responsiblity.</div><br><hr>";
     $body.= "<div style='color:red'><b>Discliminary:</b><br><small>This is system generated email, do not replay to this email, contact the admin if you have any problem.</small></div>";

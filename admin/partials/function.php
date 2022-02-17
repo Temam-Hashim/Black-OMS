@@ -238,7 +238,7 @@ require_once "db.php";
         $sql = "UPDATE `attendance` set `status`='$status' where `st_id`='$at_id' ";
         $result = $connect->query($sql);
         if($result){
-            $message = "<div class='alert alert-info text-center'>Attendance Updated successfully ";
+            $message = "<div class='alert alert-info text-center'>Attendance Updated successfully </div>";
             header("Location:attendance_add.php?edit_id=$at_id&message=$message");
         }else{
             $message = "<div class='alert alert-danger text-center'>Failed to update attendance. please try again!</div>";

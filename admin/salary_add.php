@@ -164,7 +164,7 @@
       // }
        //  check if user already paid in this month
       $current = date("Y-m");
-      $sql = "SELECT * FROM `salary` WHERE SUBSTRING(`paid_on`,1,7)='$current'";
+      $sql = "SELECT * FROM `salary` WHERE SUBSTRING(`paid_on`,1,7)='$current' and `name`='$st_name'";
       $res =  $connect->query($sql);
       $counter = $res->num_rows;
 
