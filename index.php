@@ -5,29 +5,67 @@
 	session_start();
 ?>
 
+
+<style>
+	.whole {
+  /* background: rgba(76, 175, 80, 0.3) */
+	background-position: center center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	backface-visibility:hidden;
+	animation:sliding 8s linear infinite 0s;
+	animation-timing-function:ease-in-out;
+	background: url('images/bg.jpg');
+  border: 2px solid black;
+}
+@keyframes sliding {
+	0%{
+		background-image:url('images/bg2.jpg');
+	}
+	25%{
+		background-image:url('images/bg3.jpg');
+	}
+	50%{
+		background-image:url('images/bg4.jpg');
+	}
+	75%{
+		background-image:url('images/bg5.jpg');
+	}
+	100%{
+		background-image:url('images/bg6.jpg');
+	}
+}
+.login-area{
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+</style>
+
 <!-- Page Content -->
-<div class="container">
+<div class="container whole">
 <div class="row">
 
 
 	<div class="form-gap"></div>
-	<div class="container">
-<h1 class="heading" class="text-center text-primary">
-	<marquee behavior="" direction="" class="text-primary"><b>Welcome to Black Financial Solution</b></marquee>
-</h1>
-<?php
-	if(isset($_GET['warning'])){
-		$warning = $_GET['warning'];
-		echo "<div class='alert alert-danger'>$warning</div>";
-	}
-?>
-		<div class="row">
-<div class="col-md-3"></div>
-			<div class="col-md-5">
+<div class="container">
+
+		<h1 class="heading" class="text-center text-primary">
+			<marquee behavior="" direction="" class="text-primary"><b>Welcome to Black Financial Solution</b></marquee>
+		</h1>
+		<?php
+			if(isset($_GET['warning'])){
+				$warning = $_GET['warning'];
+				echo "<div class='alert alert-danger'>$warning</div>";
+			}
+		?>
+
+<div class="row">
+		<div class="col-md-3"></div>
+			<div class="col-md-5 login-area">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="text-center">
-							<h3><i class="fa fa-user fa-4x"></i></h3>
+							<h3><i class="fa fa-user fa-3x"></i></h3>
 
 							<h2 class="text-center"> Black Login </h2>
 							<div class="panel-body">
@@ -63,7 +101,7 @@
 		<div>
 
 		<div class="col-md-3"></div>
-     </div>
+  </div>
 
 	</div>
 

@@ -100,8 +100,8 @@
     width: 150px;
     height: 150px;
     position: absolute;
-    top:calc(35vh);
-    left:calc(35vw);
+    top:30%;
+    left:45%;
   }
   .loader:before, .loader:after{
     content:'';
