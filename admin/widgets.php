@@ -176,12 +176,12 @@
           <div class="small-box bg-green">
             <div class="inner">
               <h3><?php echo $op_count ?></h3>
-              <p>Add New Customer</p>
+              <p>View Customer</p>
             </div>
             <div class="icon">
               <i class="fa fa-desktop"></i>
             </div>
-            <a href="customer_add.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="customer_manage_reception.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 

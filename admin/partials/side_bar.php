@@ -228,6 +228,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="customer_add.php"><i class="fa fa-circle-o"></i>Add New Customer</a></li>
+            <li><a href="customer_manage_reception.php"><i class="fa fa-circle-o"></i>View Customer</a></li>
           </ul>
         </li>
 

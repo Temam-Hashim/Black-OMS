@@ -230,7 +230,7 @@ CREATE TABLE `salary` (
   `pic` varchar(50) DEFAULT NULL,
   `basic_salary` int(11) DEFAULT NULL,
   `allowance` int(11) DEFAULT NULL,
-  `paid_on` date NOT NULL DEFAULT current_timestamp(),
+  `paid_on` date,
   `total_date` varchar(10) DEFAULT '1',
   `payment_method` varchar(100) DEFAULT 'cash',
   `address` varchar(100) DEFAULT NULL,
