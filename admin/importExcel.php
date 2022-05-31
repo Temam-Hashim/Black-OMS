@@ -104,38 +104,55 @@ if(isset($_POST['importSubmit'])){
               $age=$csv[8];
               $birth_place=$csv[9];
               $martial_status=$csv[10];
-              $occupation=$csv[11];
-              $employment_type=$csv[12];
-              $jobSeekerId=$csv[13];
-              $nationality=$csv[14];
-              $current_address=$csv[15];
-              $permanent_address=$csv[16];
-              $education_background=$csv[17];
-              $education_level=$csv[18];
-              $salary_range=$csv[19];
-              $exprience_level=$csv[20];
-              $exprience_year=$csv[21];
-              $emergency_contact=$csv[22];
-              $created=$csv[23];
-             //$created= $created->format('Y-m-d H:i:s');
-              $analized=$csv[24];
-              $ready_for_training=$csv[25];
-              $payment=$csv[26];
+              $nationality=$csv[11];
+              $current_address=$csv[12];
+              $permanent_address=$csv[13];
+              $education_background=$csv[14];
+              $education_level=$csv[15];
+              $occupation=$csv[16];
+              $employment_type=$csv[17];
+              $salary_range=$csv[18];
+              $exprience_level=$csv[19];
+              $exprience_year=$csv[20];
+              $emergency_contact=$csv[21];
+              $mother_name=$csv[22];
+              $father_occupation=$csv[23];
+              $mother_occupation=$csv[24];
+              $family_relation=$csv[25];
+              $sibbling_detail=$csv[26];
+              $religion=$csv[27];
+              $language=$csv[28];
+              $job_seeker_id=$csv[29];
+              $analized=$csv[30];
+              $ready_for_training=$csv[31];
+              $created=$csv[32];
+              $registered_by=$csv[33];
+              $payment=$csv[34];
               
-              $sql="INSERT INTO `registration` (`f_name`,`m_name`,	`l_name`,	`c_email`,	`c_mobile`,	`gender`,	`dob`	,`age`,	`birth_place`,	
-              `martial_status`,	`occupation`,	`employment_type`,	`job_seeker_id`	,`nationality`,	`current_address`,	`permanent_address`,
-              `education_background`,	`education_level`,	`salary_range`,	`exprience_level`,	`exprience_year`,	`emergency_contact`,	`analized`,	`ready_for_training`,	`payment`)
-                   VALUES ('".$f_name."','".$m_name."','".$l_name."','".$c_email."','".'0'.$c_mobile."','".$gender."','".$dob."','".$age."','".$birth_place."','".$martial_status."','".$occupation."','".$employment_type."',
-              '".$jobSeekerId."','".$nationality."','".$current_address."','".$permanent_address."','".$education_background."','".$education_level."','".$salary_range."','".$exprience_level."','".$exprience_year."','".$emergency_contact."',
-              '".$analized."','".$ready_for_training."','".$payment."')";
-              global $connect;
+              $sql="INSERT INTO `registration`(`f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, 
+                    `gender`, `dob`, `age`, `birth_place`, `martial_status`, `occupation`, `nationality`, 
+                    `current_address`, `permanent_address`, `emergency_contact`, `education_background`, 
+                    `salary_range`, `exprience_level`, `exprience_year`,`education_level`, `employment_type`,
+                    `mother_name`,`mother_occupation`,`father_occupation`,`sibbling_detail`,`religion`,`language`,
+                    `family_relation`,`job_seeker_id`,`analized`,`ready_for_training`,`created`,`registered_by`,`payment`)
+
+                    VALUES ('$f_name','$m_name','$l_name','$c_email','$c_mobile','$gender','$dob','$age',
+                    '$birth_place','$martial_status','$occupation','$nationality','$current_address',
+                    '$permanent_address','$emergency_contact','$education_background','$salary_range',
+                    '$exprience_level','$exprience_year','$education_level','$employment_type','$mother_name',
+                    '$mother_occupation','$father_occupation','$sibbling_detail','$religion','$language',
+                    '$family_relation','$job_seeker_id','$analized','$ready_for_training','$created',
+                    '$registered_by','$payment')";
+           
               $result=$connect->query($sql);
              
-           if($result){
-             echo "Data Inserted from Excel";
-           }else{
-             echo "Failed to Insert Data Please Try again";
-           }
+                if($result){
+                  echo "<script>alert('Data Inserted from Excel')</script>";
+                }else{
+                  echo "<script>alert('Failed to Insert Data Please Try again')</script>";
+                  echo mysqli_error($connect);
+                  break;
+                }
                 // Check whether member already exists in the database with the same email
                 // $prevQuery = "SELECT id FROM registration WHERE mobail = '".$csv[1]."'";
                 // $prevResult = $connect->query($prevQuery);

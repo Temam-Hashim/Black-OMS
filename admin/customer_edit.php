@@ -32,125 +32,124 @@
         $c_address = explode(',',$row['current_address']);
         $p_address = explode(',',$row['permanent_address']);
         $e_contact = explode(',',$row['emergency_contact']);
+        // customer employment type
+        $emp_type = explode(",",$row['employment_type']);
+        // language
+        $language = explode(",",$row['language']);
+        // mother name
+        $mother_name = explode(",",$row['mother_name']);
+        // family occupation
+        $father_job = explode(",",$row['father_occupation']);
+        $mother_job = explode(",",$row['mother_occupation']);
+        // sibbling detail
+        $sibbling = explode(",",$row['sibbling_detail']);
       }
       ?>
 
       
+    <form action="" method="post" enctype="multipart/form-data">
 
-         <form action="" method="post" enctype="multipart/form-data">
-
-                <input type="hidden" name="c_id" value="<?php echo $row['c_id']; ?>">
-
-                <div class="form-group">
-                    <label for="title" class="text-center">Full Name</label>
-                    <div class="row">
-                      <!-- <div class="col-md-1"></div> -->
-                      <div class="col-md-4">
-                        <small>first name</small>
-                        <input type="text" class="form-control" name="fname" value="<?php echo $row['f_name']; ?>" required>
-                      </div>
-                      <div class="col-md-4">
-                      <small>middle name</small>
-                        <input type="text" class="form-control" name="mname" value="<?php echo $row['m_name']; ?>" required>
-                      </div>
-                      <div class="col-md-4">
-                      <small>last name</small>
-                        <input type="text" class="form-control" name="lname" value="<?php echo $row['l_name']; ?>" required>
-                      </div>
-                    </div>
-                </div>
-
+              <input type="hidden" name="c_id" value="<?php echo $row['c_id']; ?>">
+              <div class="form-group">
+                <label for="title" class="text-center">Full Name</label>
                 <div class="row">
-                  <!-- first column -->
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-1"></div> -->
+                  <div class="col-md-4">
+                    <small>first name</small>
+                    <input type="text" class="form-control" name="fname" value="<?php echo $row['f_name']; ?>" required>
+                  </div>
+                  <div class="col-md-4">
+                  <small>middle name</small>
+                    <input type="text" class="form-control" name="mname" value="<?php echo $row['m_name']; ?>" required>
+                  </div>
+                  <div class="col-md-4">
+                  <small>last name</small>
+                    <input type="text" class="form-control" name="lname" value="<?php echo $row['l_name']; ?>" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+              <!-- first column -->
+                <div class="col-md-6">
                     <div class="form-group">
                       <label for="post_content">Email</label>
-                      <input type="email" class="form-control" name="email" value="<?php echo $row['c_email']; ?>" required>
+                      <input type="email" class="form-control" name="email" value="<?php echo $row['c_email']; ?>" >
                   </div>
-                  <div class="form-group">
-                    <label for="post_content">Mobile No</label>
-                    <input type="text" class="form-control" name="mobile" value="<?php echo $row['c_mobile']; ?>" required>
-                </div>
 
-                <div class="form-group">
-                    <label for="post_content">Gender</label>
-                    <select name="gender" id="gender" class="form-control" required>
-                      <option value="<?php echo $row['gender']; ?>"><?php echo $row['gender']; ?></option>
-                      <?php
+                    <div class="form-group">
+                      <label for="post_content">Mobile No</label>
+                      <input type="text" class="form-control" name="mobile" value="<?php echo $row['c_mobile']; ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="post_content">Gender</label>
+                      <select name="gender" id="gender" class="form-control" required>
+                        <option value="<?php echo $row['gender']?>"><?php echo $row['gender']; ?></option>
+                        <?php
                         if($row['gender']=='male'){
                           echo  "<option value='female'>female</option>";
                         }else{
                           echo " <option value='male'>male</option>";
                         }
                       ?> 
-                    </select>
-                </div>
+                      </select>
+                  </div>
 
-                <div class="form-group">
-                    <label for="post_content">Martial Status</label>
-                    <select name="ms" id="ms" class="form-control" required>
-                      <option value="<?php echo $row['martial_status']; ?>"><?php echo $row['martial_status']; ?></option>
-                      <option value="single">Single</option>
-                      <option value="married">Married</option>
-                      <option value="divorced">Divorced</option>
-                    </select>
-                </div>
-
-                <!-- educational background -->
-                <div class="form-group">
-                  <label for="">Educational Background</label>
-                  <select name="educational_bg" id="educational_bg" class="form-control">
-                    <option value="<?php echo $row['education_background']; ?>"><?php echo $row['education_background']; ?></option>
-                    <?php
-                        if($row['education_background']=='Eductated'){
-                          echo  "<option value='Uneducated'>Uneducated</option>";
-                        }else{
-                          echo " <option value='Educated'>Educated</option>";
-                        }
-                      ?> 
-                  </select>
-                </div>
-
-                  <!-- occupation statsu -->
-                  <div class="form-group">
-                  <label for="">Occupation</label>
-                  <select name="occupation" id="occupation" class="form-control">
-                  <option value="<?php echo $row['occupation']; ?>"><?php echo $row['occupation']; ?></option>
-                    <?php
-                        if($row['occupation']=='Employed'){
-                          echo  "<option value='Unemployed'>Unemployed</option>";
-                        }else{
-                          echo " <option value='Employed'>Employed</option>";
-                        }
-                      ?> 
-                  </select>
-                </div>
-
-
-
-                </div>
-                <!-- second column -->
-                  <div class="col-md-6"> 
                     <div class="form-group">
-                        <label for="post_content">Age</label>
-                        <select name="age" id="age" class="form-control" required>
-                          <option value="<?php echo $row['age']; ?>"><?php echo $row['age']; ?></option>
-                          <option value="18-25">18-25</option>
-                          <option value="26-35">26-35</option>
-                          <option value="35-50">35-50</option>
-                          <option value="50-above">50-above</option>
+                        <label for="post_content">Martial Status</label>
+                        <select name="ms" id="ms" class="form-control" required>
+                          <option value="<?php echo $row['martial_status']; ?>"><?php echo $row['martial_status']; ?></option>
+                          <option value="single">Single</option>
+                          <option value="married">Married</option>
+                          <option value="divorced">Divorced</option>
                         </select>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="post_content">Birth Date</label>
+                        <input type="date" class="form-control" name="dob" value="<?php echo $row['dob']; ?>" required>
+                    </div>
+              </div>
+              <!-- second column -->
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                      <label for="post_content">Age</label>
+                      <select name="age" id="age" class="form-control" required>
+                        <option value="<?php echo $row['age']; ?>"><?php echo $row['age']; ?></option>
+                        <option value="18-25">18-25</option>
+                        <option value="26-35">26-35</option>
+                        <option value="35-50">35-50</option>
+                        <option value="50-above">50-above</option>
+                      </select>
+                  </div>
+                      
+                  <div class="form-group">
+                      <label for="">Religion</label>
+                      <select name="religion" id="religion" class="form-control">
+                        <option value="<?php echo $row['religion']; ?>"><?php echo $row['religion']; ?></option>
+                        <option value="Musilim">Musilim</option>
+                        <option value="Orthodox">Orthodox</option>
+                        <option value="Protistant">Protistant</option>
+                        <option value="Catholic">Catholic</option>
+                        <option value="Others">Others</option>
+                      </select>
                     </div>
 
                     <div class="form-group">
-                    <label for="post_content">Birth Date</label>
-                      <input type="date" class="form-control" name="dob" value="<?php echo $row['dob']; ?>" required>
-                  </div>
-                    
-                  <div class="form-group">
+                      <label for="">Relation with Family</label>
+                      <select name="family_relation" id="family_relation" class="form-control">
+                        <option value="<?php echo $row['family_relation']; ?>"><?php echo $row['family_relation']; ?></option>
+                        <option value="good">Good Relationship</option>
+                        <option value="intermediate">Intermidiate Relationship</option>
+                        <option value="bad">Bad Relationship</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
                     <label for="">Nationality</label>
                       <select name="nationality" id="nationality" class="form-control" required>
-                            <option value="<?php echo $row['nationality']; ?>" selected><?php echo $row['nationality']; ?></option>
+                             <option value="<?php echo $row['nationality']; ?>" selected><?php echo $row['nationality']; ?></option>
                               <option value="Afghanistan"> Afghanistan </option>
                               <option value="Albania"> Albania </option>
                               <option value="Algeria"> Algeria </option>
@@ -401,224 +400,403 @@
                       </select>
                   </div>
 
+                    <div class="form-group">
+                      <label for="">Birth Place</label>
+                      <input type="text" class="form-control" name="birth_place" value="<?php echo $row['birth_place']; ?>">
+                    </div>
+                  
+                </diV>
+              </div>
+              <!-- language section -->
 
-                  <div class="form-group">
-                    <label for="">Birth Place</label>
-                    <input type="text" class="form-control" name="birth_place" value="<?php echo $row['birth_place']; ?>">
+              <div class="form-group">
+                <label for="title" class="text-center">Language</label>
+                <div class="row">
+                  <!-- <div class="col-md-1"></div> -->
+                  <div class="col-md-4">
+                    <small>Mother Tongue</small>
+                    <input type="text" class="form-control" name="language_1" value="<?php echo $language[0]; ?>">
                   </div>
-                  <!-- if eucational background == tru display this column -->
-                  <div class="form-group">
-                    <label for="">Education Level</label>
-                    <select name="education_level" id="education_level" class="form-control">
-                      <option value="<?php echo $row['education_level']; ?>"><?php echo $row['education_level']; ?></option>
-                      <option value="certificate(Grade 1-8)">certificate(Grade 1-8)</option>
-                      <option value="certificate(Grade 9-12)">certificate(Grade 9-12)</option>
-                      <option value="TVT">TVT</option>
-                      <option value="Diploma">Diploma</option>
-                      <option value="BA/BSc Degree">BA/BSC Degree</option>
-                      <option value="MA/MSC Degree">MA/MSC Degree</option>
-                      <option value="PHD Degree">PHD Degree</option>
+                  <div class="col-md-4">
+                  <small>Language #2</small>
+                    <input type="text" class="form-control" name="language_2" value="<?php echo $language[1]; ?>">
+                  </div>
+                  <div class="col-md-4">
+                  <small>Language #3</small>
+                    <input type="text" class="form-control" name="language_3" value="<?php echo $language[2]; ?>">
+                  </div>
+                </div>
+              </div>
+              <!-- education background -->
+              <div class="row">
+                    <!-- educational background -->
+              <div class="form-group col-md-6">
+              <label for="">Educational Background</label>
+              <select name="educational_bg" id="educational_bg" class="form-control">
+                <option value="<?php echo $row['education_background']; ?>"><?php echo $row['education_background']; ?></option>
+                <option value="Educated">Educated</option>
+                <option value="Uneducated">Uneducated</option>
+              </select>
+              </div>
+                    <!-- if eucational background == tru display this column -->
+                <div class="form-group col-md-6">
+                  <label for="">Education Level</label>
+                  <select name="education_level" id="education_level" class="form-control">
+                    <option value="<?php echo $row['education_level']; ?>"><?php echo $row['education_level']; ?></option>
+                    <option value="certificate(Grade 1-8)">certificate(Grade 1-8)</option>
+                    <option value="certificate(Grade 9-12)">certificate(Grade 9-12)</option>
+                    <option value="TVT">TVT</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="BA/BSc Degree">BA/BSC Degree</option>
+                    <option value="MA/MSC Degree">MA/MSC Degree</option>
+                    <option value="PHD Degree">PHD Degree</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="row">
+                  <!-- occupation statsu -->
+                  <div class="form-group col-md-4">
+                    <label for="">Occupation</label>
+                    <select name="occupation" id="occupation" class="form-control">
+                      <option value="<?php echo $row['occupation']; ?>"><?php echo $row['occupation']; ?></option>
+                      <option value="Employed">Employed</option>
+                      <option value="UnEmployed">UnEmployed</option>
                     </select>
                   </div>
+                    <!--  employement type -->
+                      <div class="form-group col-md-4">
+                        <label for="">Employment Type</label>
+                        <select name="employment_type" id="employment_type" class="form-control">
+                          <option value="<?php echo $emp_type[0]; ?>"><?php echo $emp_type[0]; ?></option>
+                          <option value="Self Employee">Self Employee</option>
+                          <option value="Govt Organization">Govt Organization</option>
+                          <option value="Private Company">Private Company</option>
+                          <option value="NGO">NGO</option>
+                        </select>
+                      </div>
 
+                      <div class="form-group col-md-4"  id = "employment_type_div">
+                        <label for="" id="label_1">Self Employee Type</label>
+                        <select name="self_employment_type" id="self_employment_type" class="form-control">
+                          <option value="<?php echo $emp_type[1]; ?>"><?php echo $emp_type[1]; ?></option>
+                          <option value="Marchant">Marchant</option>
+                          <option value="Farmer">Farmer</option>
+                        </select>
+                      </div>
 
-                              <!-- if occupation == emplyed display work type and salary -->
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label for="">Employment Type</label>
-                            <select name="employment_type" id="employment_type" class="form-control">
-                              <option value="<?php echo $row['employemt_type']; ?>"><?php echo $row['employment_type']; ?></option>
-                              <option value="Self Employee">Self Employee</option>
-                              <option value="Govt Organization">Govt Organization</option>
-                              <option value="Private Company">Private Company</option>
-                              <option value="NGO">NGO</option>
-                            </select>
-                          </div>
-                        </div>
-
-                      <!-- salary if not self employ -->
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="">Salary Range</label>
+                  <!-- salary if not self employ -->
+                    <div class="form-group col-md-4"  id = "salary_range_div">
+                          <label for="" id="label_2">Salary Range</label>
                           <select name="salary_range" id="salary_range" class="form-control">
-                            <option value="<?php echo $row['salary_range']; ?>"><?php echo $row['salary_range']; ?></option>
+                            <option value="<?php echo $row['salary_range']; ?>"><?php echo $row['education_background']; ?></option>
                             <option value="<1000">< 1000 </option>
                             <option value="1002-3000">1001-3000</option>
                             <option value="3001-5000">3001-5000</option>
                             <option value="Above 5000">Above 5000</option>
                           </select>
-                          </div>
-                        </div>
-                        </div>
-
-
-                  </div>
+                      </div>
                 </div>
+              <!-- current address -->
 
-                <!-- current address -->
-
-                <div class="form-group">
-                    <label for="title" class="text-center">Current Address</label>
-                    <div class="row">
-                      <!-- <div class="col-md-1"></div> -->
-
-                      <div class="col-md-4">
-                        <small>City</small>
-                        <input type="text" class="form-control" name="city" value="<?php echo $c_address[0]; ?>" required>
-                        <small>Sub City</small>
-                        <input type="text" class="form-control" name="subcity" value="<?php echo $c_address[1];  ?>">
-
-                      </div>
-
-                      <div class="col-md-4">
-                        <small>Werada</small>
-                        <input type="text" class="form-control" name="werada" value="<?php echo $c_address[2];  ?>" required>
-                        <small>Kebale</small>
-                        <input type="text" class="form-control" name="kebale" value="<?php echo $c_address[3];  ?>" required>
-
-                      </div>
-
-                      <div class="col-md-4">
-                      <small>House No</small>
-                        <input type="text" class="form-control" name="houseno" value="<?php echo $c_address[4];  ?>" required>
-                        <small>PIN Code</small>
-                        <input type="text" class="form-control" name="pincode" value="<?php echo $c_address[5];  ?>" required>
-                      </div>
-
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6">
-                    <label for="post_content">Is Your Current Address Same With Your Permanet Address?</label>
-                    <select name="check_address" id="check_address" class="form-control" required>
-                        <option value="no">no</option>
-                        <option value="yes">yes</option>
-                    </select>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-
-                  
-                <div class="form-group" id="permanetAddress">
-                <label for="title" class="text-center">Permanent Address</label>
-                    <div class="row" id="">
-                      <!-- <div class="col-md-1"></div> -->
-
-                      <div class="col-md-4">
-                        <small>City</small>
-                        <input type="text" class="form-control" name="city2" value="<?php echo $p_address[0];  ?>" >
-                        <small>Sub City</small>
-                        <input type="text" class="form-control" name="subcity2" value="<?php echo $p_address[1];  ?>">
-
-                      </div>
-
-                      <div class="col-md-4">
-                        <small>Werada</small>
-                        <input type="text" class="form-control" name="werada2" value="<?php echo $p_address[2];  ?>">                  
-                        <small>Kebale</small>
-                        <input type="text" class="form-control" name="kebale2" value="<?php echo $p_address[3];  ?>">
-                      </div>
-
-                      <div class="col-md-4">
-                        <small>House No</small>
-                        <input type="text" class="form-control" name="houseno2" value="<?php echo $p_address[4];  ?>">
-                        <small>PIN Code</small>
-                        <input type="text" class="form-control" name="pincode2" value="<?php echo $p_address[5];  ?>">
-                      </div>
-
-                    </div>
-                </div>
-
-                <!-- emergency contact  -->
-
-                          
-                <div class="form-group" id="permanetAddress">
-                <label for="title" class="text-center">Emergency Contact</label>
-                    <div class="row" id="">
-                      <!-- <div class="col-md-1"></div> -->
-
-                      <div class="col-md-4">
-                        <small>Name</small>
-                        <input type="text" class="form-control" name="em_name" value="<?php echo $e_contact[0];  ?>">
-                        <small>Mobile</small>
-                        <input type="text" class="form-control" name="mobile3" value="<?php echo $e_contact[1]; ?>">
-                        <small>Email</small>
-                        <input type="text" class="form-control" name="email3" value="<?php echo $e_contact[2]; ?>" >
-
-                      </div>
-
-                      <div class="col-md-4">
-                        <small>City</small>
-                        <input type="text" class="form-control" name="city3" value="<?php echo $e_contact[3]; ?>" >
-                        <small>Sub City</small>
-                        <input type="text" class="form-control" name="subcity3" value="<?php echo $e_contact[4]; ?>">
-                        <small>Werada</small>
-                        <input type="text" class="form-control" name="werada3" value="<?php echo $e_contact[5]; ?>">
-
-
-                      </div>
-
-                      <div class="col-md-4">
-                        <small>Kebale</small>
-                        <input type="text" class="form-control" name="kebale3" value="<?php echo $e_contact[6]; ?>">
-                        <small>House No</small>
-                        <input type="text" class="form-control" name="houseno3" value="<?php echo $e_contact[7]; ?>">
-                        <small>P.O. BOX</small>
-                        <input type="text" class="form-control" name="pobox3" value="<?php echo $e_contact[8]; ?>">
-                      </div>
-
-                    </div>
-                </div>
-
-                <!-- identify exprience level -->
+              <div class="form-group">
+                <label for="title" class="text-center">Current Address</label>
                 <div class="row">
-                  <div class="col-md-6">
-                            <!-- column1 -->
-                  <div class="form-group">
-                      <label for="post_content">What is your Exprience Level?</label>
-                      <select name="exp_level" id="expSelector"  class="expSelector form-control">
-                        <option value="<?php echo $row['exprience_level']; ?>"><?php echo $row['exprience_level']; ?></option>
-                        <option value="startup">Start Up</option>
-                        <option value="existing">Existing</option>
-                        <option value="special">Special</option>
-                      </select>
+                  <!-- <div class="col-md-1"></div> -->
+
+                  <div class="col-md-4">
+                    <small>City</small>
+                    <input type="text" class="form-control" name="city" value="<?php echo $c_address[0]; ?>" required>
+                    <small>Kebale</small>
+                    <input type="text" class="form-control" name="kebale" value="<?php echo $c_address[1]; ?>">
                   </div>
 
+                  <div class="col-md-4">
+                  <small>Sub City</small>
+                    <input type="text" class="form-control" name="subcity" value="<?php echo $c_address[2]; ?>">
+                    <small>House No</small>
+                    <input type="text" class="form-control" name="houseno" value="<?php echo $c_address[3]; ?>">
                   </div>
 
-                  <!-- column2 -->
-                  <div class="col-md-6">
+                  <div class="col-md-4">
+                  <small>Werada</small>
+                    <input type="text" class="form-control" name="werada" value="<?php echo $c_address[4]; ?>">
+                    <small>PIN Code</small>
+                    <input type="text" class="form-control" name="pincode" value="<?php echo $c_address[5]; ?>">
+                  </div>
 
-                <div class="hidyear form-group ">
-                      <label for="post_content">How many years of Exprience</label>
-                      <input class="form-control" type="text" name="exp_year" value="<?php echo $row['exprience_year']; ?>">
                 </div>
+              </div>
 
-                  <div class="hidspecial form-group">
-                      <label for="post_content">What is your Speciality</label>
-                      <select name="exp_special"  class="form-control">
-                        <option value="<?php echo $row['exprience_year'] ?>"><?php echo $row['exprience_year'] ?></option>
-                        <option value="Diaspora">Diaspora</option>
-                        <option value="Deliquence(NPL)">Deliquence(NPL)</option>
+
+              <div class="form-group row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <label for="post_content">Is Your Current Address Same With Your Permanet Address?</label>
+                <select name="check_address" id="check_address" class="form-control" required>
+                    <option value="no">no</option>
+                    <option value="yes">yes</option>
+                </select>
+                </div>
+                <div class="col-md-3"></div>
+              </div>
+
+
+              <div class="form-group" id="permanetAddress">
+              <label for="title" class="text-center">Permanent Address</label>
+                <div class="row" id="">
+                  <!-- <div class="col-md-1"></div> -->
+
+                  <div class="col-md-4">
+                    <small>City</small>
+                    <input type="text" class="form-control" name="city2" value="<?php echo $p_address[0]; ?>" >
+                    <small>Kebale</small>
+                    <input type="text" class="form-control" name="kebale2" value="<?php echo $p_address[1]; ?>">
+                  </div>
+
+                  <div class="col-md-4">
+                  <small>Sub City</small>
+                    <input type="text" class="form-control" name="subcity2" value="<?php echo $p_address[2]; ?>">
+                    <small>House No</small>
+                    <input type="text" class="form-control" name="houseno2" value="<?php echo $p_address[3]; ?>">
+                  </div>
+
+                  <div class="col-md-4">
+                  <small>Werada</small>
+                    <input type="text" class="form-control" name="werada2" value="<?php echo $p_address[4]; ?>">
+                    <small>PIN Code</small>
+                    <input type="text" class="form-control" name="pincode2" value="<?php echo $p_address[5]; ?>">
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- family detail -->
+              <div class="form-group">
+                <label for="title" class="text-center">Mother Full Name</label>
+                <div class="row">
+                  <!-- <div class="col-md-1"></div> -->
+                  <div class="col-md-4">
+                    <small>first Name</small>
+                    <input type="text" class="form-control" name="m_fname" value="<?php echo $mother_name[0]; ?>" >
+                  </div>
+                  <div class="col-md-4">
+                  <small>middle name</small>
+                    <input type="text" class="form-control" name="m_mname" value="<?php echo $mother_name[1]; ?>" >
+                  </div>
+                  <div class="col-md-4">
+                  <small>last name</small>
+                    <input type="text" class="form-control" name="m_lname" value="<?php echo $mother_name[2]; ?>" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="title" class="text-center">Family Job Status</label>
+                <div class="row">
+                  <!-- father job status -->
+                  <div class="col-md-6">
+                      <small for="">Father Occupation</small>
+                      <select name="father_occupation" id="father_occupation" class="form-control">
+                        <option value="<?php echo $father_job[0]; ?>"><?php echo $father_job[0]; ?></option>
+                        <option value="Unemployed">UnEmployed</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Self Employee">Self Employee</option>
+                        <option value="Student">Student</option>
+                        <option value="NA">NA</option>
                       </select>
                   </div>
 
+                  <div class="col-md-6">
+                  <small for="">Self Employee Type</small>
+                      <select name="father_self_employee_type" id="father_self_employee_type" class="form-control">
+                        <option value="<?php echo $father_job[1]; ?>"><?php echo $father_job[1]; ?></option>
+                        <option value="Marchant">Marchant</option>
+                        <option value="Farmer">Farmer</option>
+                      </select>
+                </div>
+              </div>
+              <div class="row">
+                      <!--mathor job status-->
+                      <div class="col-md-6">
+                      <small for="">Mother Occupation</small>
+                      <select name="mother_occupation" id="mother_occupation" class="form-control">
+                        <option value="<?php echo $mother_job[0]; ?>"><?php echo $mother_job[0]; ?></option>
+                        <option value="Unemployed">UnEmployed</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Self Employee">Self Employee</option>
+                        <option value="Student">Student</option>
+                        <option value="NA">NA</option>
+                      </select>
                   </div>
-                </div><hr>
+
+                  <div class="col-md-6">
+                  <small for="">Self Employee Type</small>
+                      <select name="mother_self_employee_type" id="mother_self_employee_type" class="form-control">
+                        <option value="<?php echo $mother_job[1]; ?>"><?php echo $mother_job[1]; ?></option>
+                        <option value="Marchant">Marchant</option>
+                        <option value="Farmer">Farmer</option>
+                      </select>
+                </div>
+              </div><br>
+
+              <div class="form-group">
+                <label for="">Sibling Detail</label>
+                <div class="row">
+                  <!-- <div class="col-md-1"></div> -->
+                    <div class="col-md-4">
+                        <small for="title" class="text-center">Do You Have Sibbling?</small>
+                        <select name="have_sibbling" id="have_sibbling" class="form-control">
+                            <option value="<?php echo $sibbling[0] ?>"><?php echo $sibbling[0] ?></option>
+                            <?php
+                                if($sibbling[0]=="yes"){
+                                 echo '<option value="no">no</option>';}
+                                else{
+                                  echo '<option value="yes">yes</option>'; }
+                            ?>
+                       
+                          
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                      <small>Number Of Brother</small>
+                      <input type="text" class="form-control" name="brother_no" id="brother_no" value="<?php echo $sibbling[1] ?>">
+                    </div>
+                    <div class="col-md-4">
+                      <small>Number Of Sister</small>
+                      <input type="text" class="form-control" name="sister_no" id="sister_no" value="<?php echo $sibbling[2] ?>">
+                    </div>
+                </div>
+                <!-- brother detail -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <small for="">Brother Marriage Status</small>
+                        <select name="brother_marriage_status" id="brother_marriage_status" class="form-control">
+                                <option value="<?php echo $sibbling[3] ?>"><?php echo $sibbling[3] ?></option>
+                              <option value="Unmarried">Unmarried</option>
+                              <option value="Married">Married</option>
+                          </select>
+                      </div>
+                    <!-- brother wife occupation -->
+                      <div class="col-md-6">
+                        <small for="">Brother Wife Occupation</small>
+                        <select name="brother_wife_occupation" id="brother_wife_occupation" class="form-control">
+                            <option value="<?php echo $sibbling[4] ?>"><?php echo $sibbling[4] ?></option>
+                            <option value="Unemployed">UnEmployed</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Self Employee">Self Employee</option>
+                            <option value="Student">Student</option>
+                          </select>
+                      </div>
+                </div>
+                <div class="row">
+                              <!-- sister detail -->
+                    <div class="col-md-6">
+                        <small for="">Sister Marriage Status</small>
+                        <select name="sister_marriage_status" id="sister_marriage_status" class="form-control">
+                            <option value="<?php echo $sibbling[5] ?>"><?php echo $sibbling[5] ?></option>
+                            <option value="Unmarried">Unmarried</option>
+                            <option value="Married">Married</option>
+                          </select>
+                      </div>
+                <!-- sister husband occupation-->
+                    <div class="col-md-6">
+                        <small for="">Sister Husband Occupation</small>
+                        <select name="sister_husband_occupation" id="sister_husband_occupation" class="form-control">
+                            <option value="<?php echo $sibbling[6] ?>"><?php echo $sibbling[6] ?></option>
+                            <option value="Unemployed">UnEmployed</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Self Employee">Self Employee</option>
+                            <option value="Student">Student</option>
+                          </select>
+                      </div>
+                </div>
+              </div>
+
+              <!-- emergency contact  -->
+
+                      
+              <div class="form-group" id="permanetAddress">
+              <label for="title" class="text-center">Emergency Contact</label>
+                <div class="row" id="">
+                  <!-- <div class="col-md-1"></div> -->
+
+                  <div class="col-md-4">
+                      <small>Name</small>
+                    <input type="text" class="form-control" name="em_name" value="<?php echo $e_contact[0] ?>">
+                    <small>Mobile</small>
+                    <input type="text" class="form-control" name="mobile3" value="<?php echo $e_contact[1] ?>">
+                    <small>Email</small>
+                    <input type="text" class="form-control" name="email3" value="<?php echo $e_contact[2] ?>" >
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <small>City</small>
+                    <input type="text" class="form-control" name="city3" value="<?php echo $e_contact[3] ?>" >
+                      <small>Sub City</small>
+                    <input type="text" class="form-control" name="subcity3" value="<?php echo $e_contact[4] ?>">
+                    <small>Kebale</small>
+                    <input type="text" class="form-control" name="kebale3" value="<?php echo $e_contact[5] ?>">
+
+                  </div>
+
+                  <div class="col-md-4">
+                    <small>Werada</small>
+                    <input type="text" class="form-control" name="werada3" value="<?php echo $e_contact[6] ?>">
+                    <small>House No</small>
+                    <input type="text" class="form-control" name="houseno3" value="<?php echo $e_contact[7] ?>">
+                    <small>P.O. BOX</small>
+                    <input type="text" class="form-control" name="pobox3" value="<?php echo $e_contact[8] ?>">
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- identify exprience level -->
+              <div class="row">
+              <div class="col-md-6">
+                        <!-- column1 -->
+              <div class="form-group">
+                  <label for="post_content">What is your Exprience Level?</label>
+                  <select name="exp_level" id="expSelector"  class="expSelector form-control">
+                    <option value="<?php echo $row['exprience_level']; ?>"><?php echo $row['exprience_level']; ?></option>
+                    <option value="startup">Start Up</option>
+                    <option value="existing">Existing</option>
+                    <option value="special">Special</option>
+                  </select>
+              </div>
+
+              </div>
+
+              <!-- column2 -->
+              <div class="col-md-6">
+
+              <div class="hidyear form-group ">
+                  <label for="post_content">How many years of Exprience</label>
+                  <input class="form-control" type="text" name="exp_year"  value="<?php echo $row['exprience_year']; ?>">
+              </div>
+
+              <div class="hidspecial form-group">
+                  <label for="post_content">What is your Speciality</label>
+                  <select name="exp_special"  class="form-control">
+                    <option value="<?php echo $row['exprience_year'] ?>"><?php echo $row['exprience_year'] ?></option>
+                    <option value="Disapora">Diaspora</option>
+                    <option value="Deliquence(NPL)">Deliquence(NPL)</option>
+                  </select>
+              </div>
+
+              </div>
+              </div><hr>
 
 
-                <div class="form-group text-center">
-                <input class="btn btn-primary btn-lg btn-block" type="submit" name="update_customer" value="Update Customer">
-                </div><hr>
+              <div class="form-group text-center">
+              <input class="btn btn-primary btn-lg btn-block" type="submit" name="update_customer" value="Update Customer">
+              </div><hr>
 
 
-         </form>
-
+          </form>
 
     </section>
     <!-- /.content -->
@@ -627,62 +805,65 @@
 
 
   <?php
-
+      function Escape($value){
+        global $connect;
+        return mysqli_real_escape_string($connect,$value);
+      }
 
      if(isset($_POST['update_customer'])) {
 
         $id = $_POST['c_id'];
 
-        $fname   = mysqli_real_escape_string($connect,$_POST['fname']);
-        $mname   = mysqli_real_escape_string($connect,$_POST['mname']);
-        $lname   = mysqli_real_escape_string($connect,$_POST['lname']);
+        $fname   = Escape($_POST['fname']);
+        $mname   = Escape($_POST['mname']);
+        $lname   = Escape($_POST['lname']);
 
-        $email    = mysqli_real_escape_string($connect,$_POST['email']);
-        $mobile   = mysqli_real_escape_string($connect,$_POST['mobile']);
-        $gender    = mysqli_real_escape_string($connect,$_POST['gender']);
-        $age    =   mysqli_real_escape_string($connect,$_POST['age']);
-        $dob    =   mysqli_real_escape_string($connect,$_POST['dob']);
-        $birth_place    =   mysqli_real_escape_string($connect,$_POST['birth_place']);
-        $nationality    =   mysqli_real_escape_string($connect,$_POST['nationality']);
-        $martial_status = mysqli_real_escape_string($connect,$_POST['ms']);
+        $email    = Escape($_POST['email']);
+        $mobile   = Escape($_POST['mobile']);
+        $gender    = Escape($_POST['gender']);
+        $age    =   Escape($_POST['age']);
+        $dob    =   Escape($_POST['dob']);
+        $birth_place    =   Escape($_POST['birth_place']);
+        $nationality    =   Escape($_POST['nationality']);
+        $martial_status = Escape($_POST['ms']);
 
         // occupation
-        $occupation    =   mysqli_real_escape_string($connect,$_POST['occupation']);
-        $employment_type   =   mysqli_real_escape_string($connect,$_POST['employment_type']);
-        $salary_range    =   mysqli_real_escape_string($connect,$_POST['salary_range']);
+        $occupation    =   Escape($_POST['occupation']);
+        $employment_type   =   Escape($_POST['employment_type']);
+        $salary_range    =   Escape($_POST['salary_range']);
 
         // education
-        $education_background =   mysqli_real_escape_string($connect,$_POST['educational_bg']);
-        $education_level =  mysqli_real_escape_string($connect,$_POST['education_level']);
+        $education_background =   Escape($_POST['educational_bg']);
+        $education_level =  Escape($_POST['education_level']);
 
 
-        $exp_level   = mysqli_real_escape_string($connect,$_POST['exp_level']);
+        $exp_level   = Escape($_POST['exp_level']);
         if($exp_level == 'special'){
-            $exp_year = mysqli_real_escape_string($connect,$_POST['exp_special']);
+            $exp_year = Escape($_POST['exp_special']);
         }else if($exp_level=='existing'){
-          $exp_year = mysqli_real_escape_string($connect,$_POST['exp_year']);
+          $exp_year = Escape($_POST['exp_year']);
         }else{
           $exp_year = 0;
         }
 
         //current address
-        $city = mysqli_real_escape_string($connect,$_POST['city']);
-        $subcity = mysqli_real_escape_string($connect,$_POST['subcity']);
-        $werada = mysqli_real_escape_string($connect,$_POST['werada']);
-        $kebale = mysqli_real_escape_string($connect,$_POST['kebale']);
-        $houseno = mysqli_real_escape_string($connect,$_POST['houseno']);
-        $pincode = mysqli_real_escape_string($connect,$_POST['pincode']);
+        $city = Escape($_POST['city']);
+        $subcity = Escape($_POST['subcity']);
+        $werada = Escape($_POST['werada']);
+        $kebale = Escape($_POST['kebale']);
+        $houseno = Escape($_POST['houseno']);
+        $pincode = Escape($_POST['pincode']);
 
         $current_address = $city.", ".$subcity.", ".$werada.", ".$kebale.", ".$houseno.", ".$pincode;
 
         // permanaet address
 
-        $city2 = mysqli_real_escape_string($connect,$_POST['city2']);
-        $subcity2 = mysqli_real_escape_string($connect,$_POST['subcity2']);
-        $werada2 = mysqli_real_escape_string($connect,$_POST['werada2']);
-        $kebale2 = mysqli_real_escape_string($connect,$_POST['kebale2']);
-        $houseno2 = mysqli_real_escape_string($connect,$_POST['houseno2']);
-        $pincode2 = mysqli_real_escape_string($connect,$_POST['pincode2']);
+        $city2 = Escape($_POST['city2']);
+        $subcity2 = Escape($_POST['subcity2']);
+        $werada2 = Escape($_POST['werada2']);
+        $kebale2 = Escape($_POST['kebale2']);
+        $houseno2 = Escape($_POST['houseno2']);
+        $pincode2 = Escape($_POST['pincode2']);
 
         $permanent_address = $city2.", ".$subcity2.", ".$werada2.", ".$kebale2.", ".$houseno2.", ".$pincode2;
 
@@ -691,21 +872,40 @@
         }
 
         // emergency contact
-        $em_name = mysqli_real_escape_string($connect,$_POST['em_name']);
-        $mobile3 = mysqli_real_escape_string($connect,$_POST['mobile3']);
-        $email3 = mysqli_real_escape_string($connect,$_POST['email3']);
-        $city3 = mysqli_real_escape_string($connect,$_POST['city3']);
-        $subcity3 = mysqli_real_escape_string($connect,$_POST['subcity3']);
-        $werada3 = mysqli_real_escape_string($connect,$_POST['werada3']);
-        $kebale3 = mysqli_real_escape_string($connect,$_POST['kebale3']);
-        $houseno3 = mysqli_real_escape_string($connect,$_POST['houseno3']);
-        $pobox3 = mysqli_real_escape_string($connect,$_POST['pobox3']);
+        $em_name = Escape($_POST['em_name']);
+        $mobile3 = Escape($_POST['mobile3']);
+        $email3 = Escape($_POST['email3']);
+        $city3 = Escape($_POST['city3']);
+        $subcity3 = Escape($_POST['subcity3']);
+        $werada3 = Escape($_POST['werada3']);
+        $kebale3 = Escape($_POST['kebale3']);
+        $houseno3 = Escape($_POST['houseno3']);
+        $pobox3 = Escape($_POST['pobox3']);
 
         //
         $emergency_contact = $em_name.", ".$mobile3.", ".$email3.", ".$city3.", ".$subcity3.", ".$werada3.", ".$kebale3.", ".$houseno.", ".$pobox3;
 
-        UpdateCustomer($id,$fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type);  
+        // family detail
+        $mother_name = Escape($_POST['m_fname']).", ".Escape($_POST['m_mname']).", ".Escape($_POST['m_lname']);
+        $mother_occupation = Escape($_POST['mother_occupation']).", ".Escape($_POST['mother_self_employee_type']);
+        $father_occupation = Escape($_POST['father_occupation']).", ".Escape($_POST['father_self_employee_type']);
+        $family_relation = Escape($_POST['family_relation']);
+        // sibbling detail
+        $sibbling_detail = Escape($_POST['have_sibbling']).", ".Escape($_POST['brother_no']).", ".Escape($_POST['sister_no']).", ".Escape($_POST['brother_marriage_status']).", ".Escape($_POST['brother_wife_occupation']).", ".Escape($_POST['sister_marriage_status']).", ".Escape($_POST['sister_husband_occupation']);
+        // religion
+        $religion = Escape($_POST['religion']);
+        // language
+        $language = Escape($_POST['language_1']).",".Escape($_POST['language_2']).",".Escape($_POST['language_3']);
 
+        $res = UpdateCustomer($id,$fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type,$mother_name,$mother_occupation,$father_occupation,$family_relation,$sibbling_detail,$religion,$language);  
+        if($res){
+          $message = "<div class='alert alert-success text-center'>Customer with name <b>$fname $mname $lname</b> is successfully Updated.</div>";
+          header("Location:customer_edit.php?edit_id=$id&message=$message");
+      }else{
+          $message = "<div class='alert alert-danger text-center'>Failed to Update customer named <b>$fname $mname $lname.</b> Please try again!</div>";
+          header("Location:customer_edit.php?edit_id=$id&message=$message");
+          echo mysqli_error($connect);
+      }
 
 
 }

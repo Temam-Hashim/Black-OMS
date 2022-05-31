@@ -87,14 +87,36 @@ exit();
 <th>education level</th>
 <th>exprience level</th>
 <th>experience year</th>
+
+<th>Religion</th>
+<th>Language</th>
+
+<th>Mother Name</th>
+<th>Father Occupation</th>
+<th>Mother Occupation</th>
+<th>Family relation</th>
+<th>Number of Sister and Brother</th>
+<th>Brother Marriage Status</th>
+<th>Brother Wife Occupation</th>
+<th>Sister Marriage Status</th>
+<th>Sister Husband Occupation</th>
+
 <th>registration date</th>
 
 </tr>
 <tbody>
 <?php foreach($items as $item) { 
 
-    $c_address=$item ['current_address'];
-    $c_address=explode(',',$c_address);
+    $c_address=explode(',',$item['current_address']);
+    // language
+    $language = explode(',',$item['language']);
+    // familly detail
+    $mother_name = explode(',',$item['mother_name']);
+    $mother_job = explode(',',$item['mother_occupation']);
+    $father_job = explode(',',$item['father_occupation']);
+    // sibbling
+    $sibbling = explode(',',$item['sibbling_detail']);
+    
     ?>
 <tr>
 <td><?php echo $item ['c_id']; ?></td>
@@ -109,12 +131,26 @@ exit();
 <td><?php echo $item ['occupation']; ?></td>
 <td><?php echo $item ['employment_type']; ?></td>
 <td><?php echo $item ['c_id']; ?></td>
-<td><?php echo $item ['c_id']; ?></td>
+<td><?php echo $item ['job_seeker_id']; ?></td>
 <td><?php echo $item ['current_address']; ?></td>
 <td><?php echo $item ['permanent_address']; ?></td>
 <td><?php echo $item ['education_level']; ?></td>
 <td><?php echo $item ['exprience_level']; ?></td>
 <td><?php echo $item ['exprience_year']; ?></td>
+
+<td><?php echo $item ['religion']; ?></td>
+<td><?php echo $item ['language']; ?></td>
+<td><?php echo $mother_name[0]." ".$mother_name[1]; ?></td>
+<td><?php echo $item ['father_occupation']; ?></td>
+<td><?php echo $item ['mother_occupation']; ?></td>
+<td><?php echo $item ['family_relation']; ?></td>
+<td><?php echo $sibbling[1]." Brother and ".$sibbling[2]." Sister"; ?></td>
+<td><?php echo $sibbling[3]; ?></td>
+<td><?php echo $sibbling[4]; ?></td>
+<td><?php echo $sibbling[5]; ?></td>
+<td><?php echo $sibbling[6]; ?></td>
+
+
 <td><?php echo $item ['created']; ?></td>
 </tr>
 <?php } ?>

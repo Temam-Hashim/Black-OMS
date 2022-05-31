@@ -256,53 +256,44 @@ require_once "db.php";
         $res = $connect->query($sql);
         return $res;
     }
-    function AddNewCustomer($fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type){
+    function AddNewCustomer($fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type,$mother_name,$mother_occupation,$father_occupation,$sibbling_detail,$religion,$language,$family_relation,$job_seeker_id){
         global $connect;
         $sql = "INSERT INTO `registration`(`f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, 
                 `gender`, `dob`, `age`, `birth_place`, `martial_status`, `occupation`, `nationality`, 
                 `current_address`, `permanent_address`, `emergency_contact`, `education_background`, 
-                `salary_range`, `exprience_level`, `exprience_year`,`education_level`, `employment_type`)
+                `salary_range`, `exprience_level`, `exprience_year`,`education_level`, `employment_type`,
+                `mother_name`,`mother_occupation`,`father_occupation`,`sibbling_detail`,`religion`,`language`,
+                `family_relation`,`job_seeker_id`)
 
                  VALUES ('$fname','$mname','$lname','$email','$mobile','$gender','$dob','$age',
                  '$birth_place','$martial_status','$occupation','$nationality','$current_address',
                  '$permanent_address','$emergency_contact','$education_background','$salary_range',
-                 '$exp_level','$exp_year','$education_level','$employment_type')";
+                 '$exp_level','$exp_year','$education_level','$employment_type','$mother_name',
+                 '$mother_occupation','$father_occupation','$sibbling_detail','$religion','$language',
+                 '$family_relation','$job_seeker_id')";
 
-       $res = $connect->query($sql);
-
-        if($res){
-            $message = "<div class='alert alert-success text-center'>$fname $mname $lname has Been Registered as $exp_level and has been forwarded to staff.</div>";
-            header("Location:customer_add.php?message=$message");
-        }else{
-            $message = "<div class='alert alert-danger text-center'>Failed to register this customer. Please try again!</div>";
-            header("Location:leave_request.php?message=$message");
-            // echo mysqli_error($connect);
-        }
+            return  $connect->query($sql);
 
     }
 
 
-    function UpdateCustomer($id,$fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type){
+    function UpdateCustomer($id,$fname,$mname,$lname,$email,$mobile,$gender,$dob,$age,$birth_place,$martial_status,$occupation,$nationality,$current_address,$permanent_address,$emergency_contact,$education_background,$education_level,$salary_range,$exp_level, $exp_year,$employment_type,$mother_name,$mother_occupation,$father_occupation,$family_relation,$sibbling_detail,$religion,$language){
         global $connect;
-        $sql = "UPDATE `registration` SET `f_name`='$fname',`m_name`='$mname',
-            `l_name`='$lname',`c_email`='$email',`c_mobile`='$mobile',`gender`='$gender',
-            `dob`='$dob',`age`='$age',`birth_place`='$birth_place',`martial_status`='$martial_status',
+        $sql = "UPDATE `registration` SET `f_name`='$fname',`m_name`='$mname',`l_name`='$lname',
+            `c_email`='$email',`c_mobile`='$mobile',`gender`='$gender',`dob`='$dob',
+            `age`='$age',`birth_place`='$birth_place',`martial_status`='$martial_status',
             `occupation`='$occupation',`employment_type`='$employment_type',`nationality`='$nationality',
             `current_address`='$current_address',`permanent_address`='$permanent_address',
             `education_background`='$education_background',`education_level`='$education_level',
             `salary_range`='$salary_range',`exprience_level`='$exp_level',
-            `exprience_year`='$exp_year',`emergency_contact`='$emergency_contact'
+            `exprience_year`='$exp_year',`emergency_contact`='$emergency_contact',
+            `mother_name`='$mother_name',`mother_occupation`='$mother_occupation',
+            `father_occupation`='$father_occupation',`sibbling_detail`='$sibbling_detail',
+            `language`='$language',`religion`='$religion',`family_relation`='$family_relation'
             WHERE `c_id`='$id'";   
 
-        $res = $connect->query($sql);
-        if($res){
-            $message = "<div class='alert alert-success text-center'>Customer with name $fname $mname $lname is successfully Updated.";
-            header("Location:customer_edit.php?edit_id=$id&message=$message");
-        }else{
-            $message = "<div class='alert alert-danger text-center'>Failed to Update customer named $fname $mname $lname. Please try again!</div>";
-            header("Location:customer_edit.php?edit_id=$id&message=$message");
-            echo mysqli_error($connect);
-        }
+        return $connect->query($sql);
+      
     }
     // role
     function GetRole(){

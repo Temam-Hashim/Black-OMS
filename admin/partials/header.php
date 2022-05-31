@@ -60,11 +60,11 @@ require_once "phpMailer/mailer.php";
 
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <!-- loader -->
+    <!-- loader 
 <div class="row loader_bg">
       <div class="loader"></div>
  </div>
-
+-->
 
 <div class="wrapper">
 

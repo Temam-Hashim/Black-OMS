@@ -202,7 +202,7 @@
   </script>
 
     <!-- print page -->
-    <script type="text/javascript">     
+  <script type="text/javascript">     
     function PrintSection() {    
        var sectionToPrint = document.getElementById('invoice');
        var popupWin = window.open('', '_blank', 'width=800,height=800');

@@ -68,9 +68,14 @@
                              
                                 <div class="col-md-1"></div>
                                                     <!-- add attendnace button -->
-                      <div class="row text-right mx-auto" style="margin-right:15px">
-                        <a href="customer_add.php" class="btn btn-md btn-primary mr-200" name="add_dp">Add New Customer</a>
-                      </div>
+                                  <form action="" >                          
+                                      <!-- import from and export to excel -->
+                                      <div class="row text-right mx-auto" style="margin-right:15px">
+                                        <a href="customer_add.php" class="btn btn-md btn-primary mr-200">Add New Customer</a>
+                                        <a href="importExcel.php"  class="btn btn-md btn-info mr-200">Import From Excel</a>
+                                        <a href="readandexport.php" class="btn btn-md btn-warning mr-200">Export To Excel</a>
+                                      </div>
+                                  </form>
                              
                               
                               </div>
@@ -78,9 +83,6 @@
                       </div>
 
                 <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Manage Customer</h3>
-                    </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
                       <table id="example1" class="table table-bordered table-striped">
