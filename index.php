@@ -20,19 +20,19 @@
 }
 @keyframes sliding {
 	0%{
-		background-image:url('images/bg2.jpg');
+		background-image:url('admin/images/bg2.jpg');
 	}
 	25%{
-		background-image:url('images/bg3.jpg');
+		background-image:url('admin/images/bg3.jpg');
 	}
 	50%{
-		background-image:url('images/bg4.jpg');
+		background-image:url('admin/images/bg4.jpg');
 	}
 	75%{
-		background-image:url('images/bg5.jpg');
+		background-image:url('admin/images/bg5.jpg');
 	}
 	100%{
-		background-image:url('images/bg6.jpg');
+		background-image:url('admin/images/bg6.jpg');
 	}
 }
 .login-area{

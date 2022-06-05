@@ -1,73 +1,73 @@
-
 <?php require_once "partials/header.php";?>
-  <!-- Left side column. contains the logo and sidebar -->
+<!-- Left side column. contains the logo and sidebar -->
 <?php require_once "partials/side_bar.php";?>
 
 <style>
-  #card-display{
-    border:2px 5px 3px 1px;
-    border-radius:20px;
-    margin:15px;
-    padding:15px;
-  }
+#card-display {
+  border: 2px 5px 3px 1px;
+  border-radius: 20px;
+  margin: 15px;
+  padding: 15px;
+}
 
-  .img-card{
-    width:100px;
-    height:100px;
-  }
-  .Mybtn{
-    margin-left:30px;
-    margin-right:20px;
-    margin-top:20px;
-  }
+.img-card {
+  width: 100px;
+  height: 100px;
+}
+
+.Mybtn {
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
 </style>
 
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>View Profile</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Profile</li>
-      </ol>
-    </section>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Dashboard
+      <small>View Profile</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Profile</li>
+    </ol>
+  </section>
 
-    <?php
+  <?php
      $user_email = $_SESSION['userEmail'];
      $res = GetDataById('users','email',$user_email);
      $row = $res->fetch_array();
     
     ?>
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-4">
-  <div class="card text-center bg-gray" id="card-display">
-        <img class="card-img-top img-responsive img-circle img-card" src="../images/blank.png">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <div class="card text-center bg-gray" id="card-display">
+        <img class="card-img-top img-responsive img-circle img-card" src="images/blank.png">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['username']; ?></h5>
           <p class="card-text"></p>
         </div>
         <ul class="list-group list-group-flush">
-        <li class="list-group-item"><?php echo $row['username']; ?></li>
+          <li class="list-group-item"><?php echo $row['username']; ?></li>
           <li class="list-group-item"><?php echo $row['email']; ?></li>
           <li class="list-group-item"><?php echo $row['role']; ?></li>
         </ul>
-      <div class="card-body text-center">
+        <div class="card-body text-center">
           <a href="index.php" class="btn btn-sm btn-primary Mybtn">Home</a>
           <a href="profile.php" class="btn btn-sm btn-info Mybtn">Profile</a>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="col-md-6">
 
-     <div class="box" style="margin-top:15px;">
+    <div class="col-md-6">
+
+      <div class="box" style="margin-top:15px;">
         <div class="box-header text-center">
           <h3 class="box-title text-info"><b>User Profile</b></h3>
         </div>
@@ -75,50 +75,53 @@
         <div class="box-body table-responsive">
           <form method="POST" action="">
             <input type="hidden" name="u_id" value="<?php echo $row['id'] ?>">
-              <table  class="table table-bordered table-striped">
-                <!-- first row -->
-                <thead>
+            <table class="table table-bordered table-striped">
+              <!-- first row -->
+              <thead>
                 <tr>
                   <th>User Name</th>
-                  <td><input type="text" class="form-control" name="username" value="<?php echo $row['username']; ?>"></td>
+                  <td><input type="text" class="form-control" name="username" value="<?php echo $row['username']; ?>">
+                  </td>
                 </tr>
                 <tr>
-                   <th>User Email</th>
+                  <th>User Email</th>
                   <td><input type="email" class="form-control" name="email" value="<?php echo $row['email']; ?>"></td>
                 </tr>
                 <tr>
                   <th>User Role</th>
-                  <td><input type="text" class="form-control" name="role" value="<?php echo $row['role']; ?>" readonly></td>
+                  <td><input type="text" class="form-control" name="role" value="<?php echo $row['role']; ?>" readonly>
+                  </td>
                 </tr>
                 <tr>
                   <th>User Password</th>
                   <td><input type="password" class="form-control" name="password" value=""></td>
                 </tr>
                 <tr>
-                  <td colspan=2 class='text-center'><input type="submit" class="btn btn-primary btn-block btn-lg" name="update_profile" value="Update Profile"></td>
+                  <td colspan=2 class='text-center'><input type="submit" class="btn btn-primary btn-block btn-lg"
+                      name="update_profile" value="Update Profile"></td>
                 </tr>
             </table>
-                    
+
           </form>
+        </div>
       </div>
+
     </div>
-
+    <div class="col-md-1"></div>
   </div>
-  <div class="col-md-1"></div>
+
+
+  <!-- Main content -->
+  <section class="content">
+
+
+
+  </section>
+  <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
 
-
-    <!-- Main content -->
-<section class="content">
-
-  
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <?php 
+<?php 
 
 if(isset($_POST['update_profile'])) {
 
@@ -154,4 +157,4 @@ if(isset($_POST['update_profile'])) {
 }
 
   ?>
-  <?php require_once 'partials/footer.php'; ?>
+<?php require_once 'partials/footer.php'; ?>

@@ -1,44 +1,44 @@
-
 <?php require_once "partials/header.php";?>
-  <!-- Left side column. contains the logo and sidebar -->
+<!-- Left side column. contains the logo and sidebar -->
 <?php require_once "partials/side_bar.php";?>
 
 <style>
-  #card-display{
-    border:2px 5px 3px 1px;
-    border-radius:20px;
-    margin:15px;
-    padding:15px;
-  }
+#card-display {
+  border: 2px 5px 3px 1px;
+  border-radius: 20px;
+  margin: 15px;
+  padding: 15px;
+}
 
-  .img-card{
-    width:100px;
-    height:100px;
-  }
-  .Mybtn{
-    margin-left:30px;
-    margin-right:20px;
-    margin-top:20px;
-  }
+.img-card {
+  width: 100px;
+  height: 100px;
+}
+
+.Mybtn {
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
 </style>
 
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Attendnace</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Attendance</li>
-      </ol>
-    </section>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Dashboard
+      <small>Attendnace</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Attendance</li>
+    </ol>
+  </section>
 
-    <?php
+  <?php
     if(isset($_GET['analysis_id'])){
       $id = $_GET['analysis_id'];
       $att_date =$_GET['att_date'];
@@ -49,11 +49,11 @@
       $row = $res->fetch_array(); 
     }
     ?>
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-4">
-  <div class="card text-center bg-gray" id="card-display">
-        <img class="card-img-top img-responsive img-circle img-card" src="../images/<?php echo $row['st_pic'] ?>">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <div class="card text-center bg-gray" id="card-display">
+        <img class="card-img-top img-responsive img-circle img-card" src="images/<?php echo $row['st_pic'] ?>">
         <div class="card-body">
           <h5 class="card-title"><?php echo $row['st_name']; ?></h5>
           <p class="card-text"></p>
@@ -64,18 +64,18 @@
           <li class="list-group-item"><?php echo $row['dept']; ?></li>
           <li class="list-group-item"><?php echo $row['position']; ?></li>
         </ul>
-      <div class="card-body text-center">
+        <div class="card-body text-center">
           <a href="attendance_manage.php" class="btn btn-sm btn-primary Mybtn">Attendnace</a>
           <a href="salary_manage.php" class="btn btn-sm btn-info Mybtn">Salary</a>
+        </div>
+
+
       </div>
-
-
     </div>
-  </div>
-  
-  <div class="col-md-6">
 
-  <?php  
+    <div class="col-md-6">
+
+      <?php  
        // query 2 for present
 
        $sql2 = "SELECT * from `attendance` where `st_name`='$id' and `status`='P' and  SUBSTRING(`at_date`,1,7)='$att_date'";
@@ -90,49 +90,49 @@
 
   ?>
 
-     <div class="box" style="margin-top:15px;">
+      <div class="box" style="margin-top:15px;">
         <div class="box-header text-center">
           <h3 class="box-title text-info"><b>Attednance Analysis</b></h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body table-responsive" >
+        <div class="box-body table-responsive">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
-            <tr>
-              <th>Month-Year</th>
-              <th>No of Present</th>
-              <th>No of Absent</th>
-              <th>Present %</th>
-              <th>Abasent %</th>
-            </tr>
+              <tr>
+                <th>Month-Year</th>
+                <th>No of Present</th>
+                <th>No of Absent</th>
+                <th>Present %</th>
+                <th>Abasent %</th>
+              </tr>
             </thead>
             <tbody>
 
-            <tr>
-              <td><?php echo $att_date; ?></td>
-              <td><?php echo $no_of_prsent; ?></td>
-              <td><?php echo $no_of_absent; ?></td>
-              <td><?php echo ($no_of_prsent*100)/($no_of_prsent+$no_of_absent)  ?>%</td>
-              <td><?php echo ($no_of_absent*100)/($no_of_prsent+$no_of_absent)  ?>%</td>
-            </tr>
+              <tr>
+                <td><?php echo $att_date; ?></td>
+                <td><?php echo $no_of_prsent; ?></td>
+                <td><?php echo $no_of_absent; ?></td>
+                <td><?php echo ($no_of_prsent*100)/($no_of_prsent+$no_of_absent)  ?>%</td>
+                <td><?php echo ($no_of_absent*100)/($no_of_prsent+$no_of_absent)  ?>%</td>
+              </tr>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
+
     </div>
-
+    <div class="col-md-1"></div>
   </div>
-  <div class="col-md-1"></div>
+
+
+  <!-- Main content -->
+  <section class="content">
+
+
+
+  </section>
+  <!-- /.content -->
 </div>
-
-
-    <!-- Main content -->
-    <section class="content">
-
-  
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <?php require_once 'partials/footer.php'; ?>
+<!-- /.content-wrapper -->
+<?php require_once 'partials/footer.php'; ?>
