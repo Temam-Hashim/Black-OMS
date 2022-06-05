@@ -88,7 +88,7 @@
                 </tr>
                 <tr>
                   <th>User Role</th>
-                  <td><input type="text" class="form-control" name="role" value="<?php echo $row['role']; ?>"></td>
+                  <td><input type="text" class="form-control" name="role" value="<?php echo $row['role']; ?>" readonly></td>
                 </tr>
                 <tr>
                   <th>User Password</th>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2022 at 09:31 AM
+-- Generation Time: Jun 04, 2022 at 09:11 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -186,20 +186,28 @@ CREATE TABLE IF NOT EXISTS `registration` (
   `registered_by` varchar(25) DEFAULT NULL,
   `payment` varchar(20) NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `registration`
 --
 
 INSERT INTO `registration` (`c_id`, `f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, `gender`, `dob`, `age`, `birth_place`, `martial_status`, `nationality`, `current_address`, `permanent_address`, `education_background`, `education_level`, `occupation`, `employment_type`, `salary_range`, `exprience_level`, `exprience_year`, `emergency_contact`, `mother_name`, `father_occupation`, `mother_occupation`, `family_relation`, `sibbling_detail`, `religion`, `language`, `job_seeker_id`, `analized`, `ready_for_training`, `created`, `registered_by`, `payment`) VALUES
-(3, 'Temam', 'Hashim', 'Ahimed', 'temamhashim3@gmail.com', '098521676', 'male', '1998-01-20', '', 'Bambassi', 'single', 'Ethiopia', ', , , , , , , , ,', ' , , , , , , , , ,', 'Educated', 'BA/BSc Degree', 'Employed', 'Private Company', 'Above 5000', 'existing', '2', 'Mohammed Abdella,  0912664476,  mabdell97@gmail.com,  Desse,  Bati,  Bati,  02,  099,  011', ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,,', '', 'yes', 'yes', '2022-01-31 07:02:29', '', 'pending'),
+(3, 'Temam', 'Hashim', 'Ahimed', 'temamhashim3@gmail.com', '098521676', 'male', '1998-01-20', '', 'Bambassi', 'single', 'Ethiopia', ', , , , , , , , ,', ' , , , , , , , , ,', 'Educated', 'BA/BSc Degree', 'Employed', 'Private Company', 'Above 5000', 'existing', '2', 'Mohammed Abdella,  0912664476,  mabdell97@gmail.com,  Desse,  Bati,  Bati,  02,  099,  011', ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,,', '', 'yes', 'no', '2022-01-31 07:02:29', '', 'pending'),
 (5, 'kemal', NULL, NULL, 'hashimtemam98@gmail.com', '098785673', 'male', '0000-00-00', '', '', '', '', ', , , , , , , , ,', ' , , , , , , , , ,', '', NULL, '', NULL, '', 'startup', '0', NULL, ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,,', '', 'yes', 'yes', '2022-01-31 09:10:25', '', 'pending'),
 (6, 'Abdu', NULL, NULL, 'temamhashim3@gmail.com', '0987653462', 'male', '0000-00-00', '', '', '', '', ', , , , , , , , ,', ' , , , , , , , , ,', '', NULL, '', NULL, '', 'existing', '10', ',,,,,,,,,', ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,,', '', 'yes', 'yes', '2022-02-03 09:25:07', '', 'pending'),
 (7, 'abeba', NULL, NULL, 'ab@gmail.com', '098765435', 'male', '0000-00-00', '', '', '', '', ', , , , , , , , ,', ' , , , , , , , , ,', '', NULL, '', ',,', '', 'existing', '7', ',,,,,,,,,', ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,', '', 'yes', 'no', '2022-02-03 13:01:12', '', 'pending'),
 (24, 'Seid', 'Ahimed', 'Kemal', 'seid@gmail.com', '0976543234', 'male', '1990-05-08', '', 'addis ababa', 'single', 'Ethiopia', ', , , , , , , , ,', ' , , , , , , , , ,', '', '', 'Employed', '', '3001-5000', 'startup', '', ',,,,,,,,,', ',,,', ',,', ',,', NULL, ',,,,,,,', NULL, ',,,', '', 'no', 'no', '2022-02-07 12:51:08', '', 'pending'),
 (29, 'Mohammed', 'Abdella', 'Arebu', 'mabdella1995@gmail.com', '0910976644', 'male', '1995-06-23', '18-25', 'Bati', 'single', 'Ethiopia', ', , , , , , , , ,', ' , , , , , , , , ,', 'Educated', 'BA/BSc Degree', 'Employed', 'Self Employee', '<1000', 'startup', '0', 'Temam Hashim,    0985130393,    temam@gmail.com,    Addis Ababa,    Megangna,    09,    09,    Bati,    1000', 'Ruham,    Umer,    Seid', 'Self Employee,    Farmer', 'Self Employee,    Farmer', 'Good Relationship', 'yes,    2,    2,    Married,    Self Employee,    Married,    Self Employee', 'Musilim', 'Afaan Oromo,Amharic,English', '1653888948', 'yes', 'no', '2022-05-30 05:35:48', NULL, 'pending'),
-(30, 'Kemal', 'Kemal', 'Kemal', 'kemal@gmail.com', '0987543728', 'male', NULL, '18-25', NULL, 'single', NULL, 'Addis Ababa,   Megangna, 09  ,   09,   2838,   1000', ' , , , , , , , , ,', NULL, 'NULL', 'Self Employee', 'NULL', NULL, NULL, NULL, ' , , , , , , , , ,', ' , , ,', ', ,', ', ,', NULL, ', , , , , , ,', NULL, ',,,', '1653987793', 'yes', 'no', '2022-05-31 09:03:13', NULL, 'pending');
+(30, 'Kemal', 'Kemal', 'Kemal', 'kemal@gmail.com', '0987543728', 'male', NULL, '18-25', NULL, 'single', NULL, 'Addis Ababa,   Megangna, 09  ,   09,   2838,   1000', ' , , , , , , , , ,', NULL, 'NULL', 'Self Employee', 'NULL', NULL, NULL, NULL, ' , , , , , , , , ,', ' , , ,', ', ,', ', ,', NULL, ', , , , , , ,', NULL, ',,,', '1653987793', 'yes', 'no', '2022-05-31 09:03:13', NULL, 'pending'),
+(31, '  Bambassi', '  Bambassi', '  02', '  099', '  1000\"	\"Assosa', '  Bambassi', '1998-01-20', '  02', '  099', '  02', '  0912664476', '  mabdell97@gmail.com', '  Desse', '  Bati', '  Bati', '  02', '  099', '  011\"	\"', '', '', '	', '', '	', '', '		', '', '', '', '', '', '', '2022-01-31 07:02:29', '', ''),
+(32, 'Temam', 'Hashim', 'Ahimed', 'temamhashim3@gmail.com', '98521676', 'male', '1995-06-23', '', 'Bambassi', '', 'Ethiopia', 'Assosa,  Bambassi,  Bambassi,  02,  099,  1000', 'Assosa,  Bambassi,  Bambassi,  02,  099,  1000', 'Educated', 'BA/BSc Degree', 'Employed', 'Private Company', 'Above 5000', 'existing', '2', 'Mohammed Abdella,  0912664476,  mabdell97@gmail.com,  Desse,  Bati,  Bati,  02,  099,  011', ',,,', ',,', ',,', '', ',,,,,,,', '', ',,,', '', 'yes', 'yes', '2022-01-30 21:00:00', '', 'pending'),
+(33, 'kemal', '', '', 'hashimtemam98@gmail.com', '98785673', 'male', '1995-06-24', '', '', '', '', '', '', '', '', '', '', '', 'startup', '0', '', ',,,', ',,', ',,', '', ',,,,,,,', '', ',,,', '', 'yes', 'yes', '2022-01-30 21:00:00', '', 'pending'),
+(34, 'Abdu', '', '', 'temamhashim3@gmail.com', '987653462', 'male', '1995-06-25', '', '', '', '', ',,,,,,,,,', ',,,,,,,,,', '', '', '', '', '', 'existing', '10', ',,,,,,,,,', ',,,', ',,', ',,', '', ',,,,,,,', '', ',,,', '', 'yes', 'yes', '2022-02-02 21:00:00', '', 'pending'),
+(35, 'abeba', '', '', 'ab@gmail.com', '98765435', 'male', '1995-06-26', '', '', '', '', ',,,,,,,,,', ',,,,,,,,,', '', '', '', ',,', '', 'existing', '7', ',,,,,,,,,', ',,,', ',,', ',,', '', ',,,,,,,', '', ',,', '', 'yes', 'no', '2022-02-02 21:00:00', '', 'pending'),
+(36, 'Seid', 'Ahimed', 'Kemal', 'seid@gmail.com', '976543234', 'male', '1995-06-27', '', 'addis ababa', '', 'Ethiopia', 'addis ababa, bole, 09, 02, EB20, 1000', ', , , , , , , , , ,,', '', '', 'Employed', '', '3001-5000', 'startup', '', ',,,,,,,,,', ',,,', ',,', ',,', '', ',,,,,,,', '', ',,,', '', 'no', 'no', '2022-02-06 21:00:00', '', 'pending'),
+(37, 'Mohammed', 'Abdella', 'Arebu', 'mabdella1995@gmail.com', '910976644', 'male', '1995-06-28', '18-25', 'Bati', '18-25', 'Ethiopia', 'Bati,    02,    Bati,    2367,    Bati,    5432', 'Bati,    02,    Bati,    2367,    Bati,    5432', 'Educated', 'BA/BSc Degree', 'Employed', 'Self Employee', '<1000', 'startup', '0', 'Temam Hashim,    0985130393,    temam@gmail.com,    Addis Ababa,    Megangna,    09,    09,    Bati,    1000', 'Ruham,    Umer,    Seid', 'Self Employee,    Farmer', 'Self Employee,    Farmer', 'Good Relationship', 'yes,    2,    2,    Married,    Self Employee,    Married,    Self Employee', 'Musilim', 'Afaan Oromo,Amharic,English', '1653888948', 'yes', 'no', '2022-05-29 21:00:00', '', 'pending'),
+(38, 'aaa', 'aaa', 'aaa', 'aa@gmail.com', '9477595', 'male', NULL, '26-35', NULL, 'single', NULL, 'nnrkjkfrjk, , , , , ', ' , , , , , , , , ,', NULL, 'NULL', 'UnEmployed', 'NULL', NULL, NULL, NULL, ', , , , , , , , ,', ' , , ,', ', ,', ', ,', NULL, ', , , , , , ,', NULL, ',,,', '1654085126', 'yes', 'no', '2022-06-01 12:05:26', NULL, 'pending');
 
 -- --------------------------------------------------------
 
@@ -330,11 +338,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created`, `modified`) VALUES
-(13, 'beti', 'beti@gmail.com', 'beti', 'finance', '2022-02-06 12:23:24', '2022-02-06 12:23:24'),
-(14, 'Kemal', 'hashimtemam98@gmail.com', '$2y$10$AM7ddU2y2ZnVqkh5KGRiU.jLiVg48.dmpYttj041sjVo.M6Osd6bO', 'special analyst', '2022-02-06 12:40:11', '2022-02-06 12:40:11'),
-(11, 'Sara', 'ourgroupemail2018@gmail.com', '$2y$10$Rnyhd8nbC9DgXRKCnGZpbefrMG8JqLZOk2FPVwH6BWvJsxeGsuSRy', 'reception', '2022-02-06 11:02:10', '2022-02-06 11:02:10'),
-(12, 'selam', 'selam@gmail.com', 'selam', 'promotion', '2022-02-06 12:22:44', '2022-02-06 12:22:44'),
-(10, 'Temam', 'temamhashim3@gmail.com', '$2y$10$ZofcQscqw2cTd./.DJouMepTRWum3i/44aL/F672OqREs7PMr2hMO', 'admin', '2022-02-06 11:00:25', '2022-02-06 11:00:25');
+(13, 'analyst', 'beti@gmail.com', '$2y$10$HDO0TGwa0YMnm0PwMeKNBeBoKMci9DBEV0mCC1iKnSnCpd9MAL54G', 'analyst', '2022-02-06 12:23:24', '2022-02-06 12:23:24'),
+(14, 'relation', 'hashimtemam98@gmail.com', '$2y$10$UAoFbI57eGUUdVkmQQ7b6OdKeVRvJ5klW7V4dXTkR2ioWNuP.ZmfO', 'relation', '2022-02-06 12:40:11', '2022-02-06 12:40:11'),
+(11, 'reception', 'ourgroupemail2018@gmail.com', '$2y$10$gTsoCLsGGThdrz.ohj2poeAzOaR4xQCXfuSyUmoYLf4dLaS0S024S', 'reception', '2022-02-06 11:02:10', '2022-02-06 11:02:10'),
+(12, 'promotion', 'selam@gmail.com', '$2y$10$I46S.QMrdT5MJ14OVmPoLetV8BeYu.wib8Rmqjn3RBIFPOaPN7Apq', 'promotion', '2022-02-06 12:22:44', '2022-02-06 12:22:44'),
+(10, 'Admin', 'temamhashim3@gmail.com', '$2y$10$8n3I9dRj1GofjHMpWA8qJOjClDqG6uwWPoaqrUDQj0BiWs8oAsk5m', 'admin', '2022-02-06 11:00:25', '2022-02-06 11:00:25');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

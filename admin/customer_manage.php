@@ -92,7 +92,8 @@
                           <th>customer Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Exprince Level</th>
+                          <td>Exprience Level</td>
+                          <th>Registration_date</th>
                           <th>Action</th>
                           <th>Action</th>
                           <th>Action</th>
@@ -128,6 +129,7 @@
                                   <td><?php echo $row['c_email']; ?></td>
                                   <td><?php echo $row['c_mobile']; ?></td>
                                   <td><?php echo $row['exprience_level']; ?></td>
+                                  <td><?php echo $row['created']; ?></td>
                                   <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>
                                   <td><a href="customer_edit.php?edit_id=<?php echo $c_id;?>" class="btn btn-primary">Edit</a></td>
                                   <td><a href="customer_manage.php?delete_id=<?php echo $c_id;?>" class="btn btn-danger">Delete</a></td>

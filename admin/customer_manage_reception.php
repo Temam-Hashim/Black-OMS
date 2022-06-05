@@ -51,6 +51,7 @@
                           <th>Martial Status</th>
                           <th>Occupation</th>
                           <th>Current Address</th>
+                          <th>Registration_Date</th>
                           <th>Action</th>
                           <th>Action</th>
                         </tr>
@@ -74,6 +75,7 @@
                                   <td><?php echo $row['martial_status']; ?></td>
                                   <td><?php echo $row['occupation']; ?></td>
                                   <td><?php echo $row['current_address']; ?></td>
+                                  <td><?php echo $row['created']; ?></td>
                                   <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>
                                   <td><a href="customer_edit_reception.php?edit_id=<?php echo $c_id;?>" class="btn btn-primary">Edit</a></td>
                               </tr>
@@ -90,6 +92,7 @@
                           <th>Martial Status</th>
                           <th>Occupation</th>
                           <th>Current Address</th>
+                          <th>Registration_Date</th>
                           <th>Action</th>
                           <th>Action</th>
                         </tr>

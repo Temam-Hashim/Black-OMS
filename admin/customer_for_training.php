@@ -194,6 +194,7 @@
                           <th>Email</th>
                           <th>Mobile</th>
                           <th>Exprience Level</th>
+                          <th>Registration_date</th>
                           <th>Analyzed</th>
                           <th>Ready for Training</th>
                           <th>Action</th>
@@ -233,6 +234,7 @@
                                   <td><?php echo $row['c_email']; ?></td>
                                   <td><?php echo $row['c_mobile']; ?></td>
                                   <td><?php echo $row['exprience_level']; ?></td>
+                                  <td><?php echo $row['created']; ?></td>
                                   <td><p class="text-success">Yes</p></td> 
                                   <td><p class="text-success">Yes</p></td>  
                                   <td><a href="customer_view.php?view_id=<?php echo $c_id;?>" class="btn btn-info">View Detail</a></td>

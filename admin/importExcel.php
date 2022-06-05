@@ -92,42 +92,42 @@ if(isset($_POST['importSubmit'])){
             fgetcsv($csvFile);
             
             // Parse data from CSV file line by line
-            while(($csv = fgetcsv($csvFile)) !== FALSE){
+            while(($csv = fgetcsv($csvFile,10000,",")) !== FALSE){
                 // Get row data
-              $f_name = $csv[1];
-              $m_name = $csv[2];
-              $l_name =$csv[3];
-              $c_email=$csv[4];
-              $c_mobile=$csv[5];
-              $gender=$csv[6];
-              $dob=$csv[7];
-              $age=$csv[8];
-              $birth_place=$csv[9];
-              $martial_status=$csv[10];
-              $nationality=$csv[11];
-              $current_address=$csv[12];
-              $permanent_address=$csv[13];
-              $education_background=$csv[14];
-              $education_level=$csv[15];
-              $occupation=$csv[16];
-              $employment_type=$csv[17];
-              $salary_range=$csv[18];
-              $exprience_level=$csv[19];
-              $exprience_year=$csv[20];
-              $emergency_contact=$csv[21];
-              $mother_name=$csv[22];
-              $father_occupation=$csv[23];
-              $mother_occupation=$csv[24];
-              $family_relation=$csv[25];
-              $sibbling_detail=$csv[26];
-              $religion=$csv[27];
-              $language=$csv[28];
-              $job_seeker_id=$csv[29];
-              $analized=$csv[30];
-              $ready_for_training=$csv[31];
-              $created=$csv[32];
-              $registered_by=$csv[33];
-              $payment=$csv[34];
+              $f_name               = $csv[1];
+              $m_name               = $csv[2];
+              $l_name               = $csv[3];
+              $c_email              = $csv[4];
+              $c_mobile             = $csv[5];
+              $gender               = $csv[6];
+              $dob                  = $csv[7];
+              $age                  = $csv[8];
+              $birth_place          = $csv[9];
+              $martial_status       = $csv[8];
+              $nationality          = $csv[11];
+              $current_address      = $csv[12];
+              $permanent_address    = $csv[13];
+              $education_background = $csv[14];
+              $education_level      = $csv[15];
+              $occupation           = $csv[16];
+              $employment_type      = $csv[17];
+              $salary_range         = $csv[18];
+              $exprience_level      = $csv[19];
+              $exprience_year       = $csv[20];
+              $emergency_contact    = $csv[21];
+              $mother_name          = $csv[22];
+              $father_occupation    = $csv[23];
+              $mother_occupation    = $csv[24];
+              $family_relation      = $csv[25];
+              $sibbling_detail      = $csv[26];
+              $religion             = $csv[27];
+              $language             = $csv[28];
+              $job_seeker_id        = $csv[29];
+              $analized             = $csv[30];
+              $ready_for_training   = $csv[31];
+              $created              = $csv[32];
+              $registered_by        = $csv[33];
+              $payment              = $csv[34];
               
               $sql="INSERT INTO `registration`(`f_name`, `m_name`, `l_name`, `c_email`, `c_mobile`, 
                     `gender`, `dob`, `age`, `birth_place`, `martial_status`, `occupation`, `nationality`, 
