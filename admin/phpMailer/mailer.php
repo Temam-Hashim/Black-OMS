@@ -23,7 +23,7 @@ function PHP_MAILER($to,$from,$subject,$body){
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'ourgroupemail2018@gmail.com';                     //SMTP username
-            $mail->Password   = 'pshcsiotdsrsyogn';                               //SMTP password
+            $mail->Password   = 'ybcirqabxeuhevnw';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port       = 465;
             $mail->SMTPSecure = 'ssl';
